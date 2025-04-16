@@ -3,11 +3,12 @@ import { AfterViewInit, Component, CUSTOM_ELEMENTS_SCHEMA, ElementRef, inject, P
 import Typed from 'typed.js';
 import { PortfolioComponent } from "../portfolio/portfolio.component";
 import { ContactComponent } from "../contact/contact.component";
+import { SkillsComponent } from "../skills/skills.component";
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [PortfolioComponent, ContactComponent],
+  imports: [PortfolioComponent, ContactComponent, SkillsComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   schemas: [CUSTOM_ELEMENTS_SCHEMA]

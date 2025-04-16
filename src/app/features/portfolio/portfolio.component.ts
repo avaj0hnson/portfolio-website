@@ -10,19 +10,7 @@ import { ProjectModalComponent } from './project-modal/project-modal.component';
   standalone: true,
   imports: [CommonModule, ProjectCardComponent, ProjectModalComponent],
   templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.scss',
-  animations: [
-    trigger('fadeInStagger', [
-      transition(':enter', [
-        query('app-project-card', [
-          style({ opacity: 0, transform: 'translateY(10px)' }),
-          stagger(100, [
-            animate('400ms ease-out', style({ opacity: 1, transform: 'translateY(0)' })),
-          ])
-        ], { optional: true })
-      ])
-    ])
-  ]
+  styleUrl: './portfolio.component.scss'
 })
 export class PortfolioComponent {
   selectedCategory: ProjectCategory | 'all' = 'all';
