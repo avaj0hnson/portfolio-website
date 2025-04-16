@@ -37,8 +37,7 @@ export class PortfolioComponent {
       category: ['websites', 'me'],
       tags: ['Angular', 'Tailwind', 'Material Design'],
       links: [
-        { label: 'Live Site', url: 'https://yourportfolio.com' },
-        { label: 'GitHub', url: 'https://github.com/yourusername/portfolio-site' }
+        { label: 'GitHub', url: 'https://github.com/avaj0hnson/portfolio-website' }
       ]
     },    
     {
