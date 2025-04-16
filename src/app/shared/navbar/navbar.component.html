@@ -1,0 +1,51 @@
+<nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <!-- Logo / Brand -->
+        <div class="flex items-center gap-2 text-xl font-semibold text-primary">
+            <i class="fas fa-circle"></i>
+            Ava Johnson
+        </div>
+
+        <!-- Desktop nav -->
+        <div class="hidden md:flex items-center gap-6">
+            <a class="text-sm hover:text-primary cursor-pointer" (click)="scrollTo('portfolio')">Portfolio</a>
+            <a class="text-sm hover:text-primary cursor-pointer" (click)="scrollTo('contact')">Contact</a>
+
+            <!-- Social icons -->
+            <a href="https://linkedin.com/in/avaj0hnson" target="_blank" class="text-gray-600 hover:text-primary text-xl">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/avaj0hnson" target="_blank" class="text-gray-600 hover:text-primary text-xl">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <!-- Resume download -->
+            <a
+                href="https://docs.google.com/document/d/1Syuvef_3hPk3_LkNC-yJNFXM0bmKfqBAzakbINax8qc/edit?usp=sharing"
+                target="_blank"
+                class="bg-primary text-white px-4 py-2 rounded hover:opacity-90 text-sm"
+                rel="noopener"
+            >
+                Resume
+            </a>
+        </div>
+
+    <!-- Mobile menu toggle -->
+        <button class="md:hidden text-2xl" (click)="isMenuOpen = !isMenuOpen">☰</button>
+    </div>
+
+    <!-- Mobile dropdown -->
+    <div *ngIf="isMenuOpen" class="md:hidden px-4 pb-4 bg-white flex flex-col gap-3 text-sm">
+        <a (click)="scrollTo('portfolio')" class="hover:text-primary">Portfolio</a>
+        <a (click)="scrollTo('contact')" class="hover:text-primary">Contact</a>
+        <a href="https://linkedin.com/in/avaj0hnson" target="_blank" class="hover:text-primary">LinkedIn</a>
+        <a href="https://github.com/avaj0hnson" target="_blank" class="hover:text-primary">GitHub</a>
+        <a
+            href="https://docs.google.com/document/d/1Syuvef_3hPk3_LkNC-yJNFXM0bmKfqBAzakbINax8qc/edit?usp=sharing"
+            target="_blank"
+            class="bg-primary text-white text-center px-4 py-2 rounded hover:opacity-90"
+        >
+            Resume
+        </a>
+    </div>
+</nav>

@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+@include mat.core();
+
+$portfolio-website-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$green-palette,
+    tertiary: mat.$orange-palette,
+  ),
+  density: (
+    scale: 0,
+  )
+));
+
+:root {
+  @include mat.all-component-themes($portfolio-website-theme);
+}
+
+@import 'tailwind-setup';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.filter-btn {
+  @apply px-4 py-2 border border-primary text-primary rounded hover:bg-primary hover:text-white transition;
+}
+
+.filter-btn.active {
+  @apply bg-primary text-white;
+}

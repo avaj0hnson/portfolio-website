@@ -1,0 +1,63 @@
+<section id="contact" class="relative py-20 bg-gradient-to-b from-white to-primary/10 overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6 text-center">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-6">Let’s Connect 😊</h2>
+        <p class="text-gray-600 mb-10 max-w-xl mx-auto">
+            Whether it’s to collaborate, hire me, or just say hi — I’d love to hear from you!
+        </p>
+        <!-- Floating Contact Orb -->
+        <div class="relative inline-block animate-bounce" (click)="toggleForm()">
+            <img
+                src="img/contact-icon.png"
+                alt="Contact Orb"
+                class="h-20 sm:h-24 cursor-pointer transition hover:scale-110"
+            />
+        </div>
+
+        <!-- Animated Contact Form -->
+        <div
+            *ngIf="revealForm"
+            @slideUp
+            class="mt-10 bg-white rounded-lg shadow-lg p-6 w-full max-w-lg mx-auto"
+        >
+            <form
+                #contactForm="ngForm"
+                (ngSubmit)="onSubmit(contactForm)"
+                class="grid gap-4"
+                novalidate
+            >
+                <input
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                required
+                ngModel
+                class="input"
+                />
+            
+                <textarea
+                name="message"
+                rows="5"
+                placeholder="Your Message"
+                required
+                ngModel
+                class="input"
+                ></textarea>
+            
+                <button
+                type="submit"
+                [disabled]="isSending"
+                class="bg-primary text-white py-2 px-6 rounded hover:scale-105 transition"
+                >
+                {{ isSending ? 'Sending...' : 'Send Message' }}
+                </button>
+            </form>
+            
+            <div
+                *ngIf="submitted"
+                class="mt-4 text-green-600 font-medium animate-fade-in"
+            >
+                ✅ Message sent! I'll get back to you soon.
+            </div>
+        </div>
+    </div>
+</section>
