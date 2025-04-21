@@ -19,11 +19,21 @@ export class PortfolioComponent {
 
   projects: Project[] = [
     {
+      title: 'Petal Timer',
+      description: 'A cute, modern Pomodoro timer designed around a real 8–5 workday, complete with customizable hours, live session tracking, and collectible badges. Built with Angular, TailwindCSS, and a soft, motivating aesthetic.',
+      image: 'img/petaltimer-thumbnail.png',
+      category: ['websites', 'me'],
+      tags: ['Angular', 'Tailwind'],
+      links: [
+        { label: 'GitHub', url: 'https://github.com/avaj0hnson/petal-timer' }
+      ]
+    },
+    {
       title: 'Portfolio Website',
-      description: 'Personal portfolio built with Angular, Tailwind CSS, and Angular Material to showcase web development projects.',
+      description: 'Personal portfolio built with Angular and Tailwind CSS to showcase web development projects.',
       image: 'img/portfolio-thumbnail.png',
       category: ['websites', 'me'],
-      tags: ['Angular', 'Tailwind', 'Material Design'],
+      tags: ['Angular', 'Tailwind'],
       links: [
         { label: 'GitHub', url: 'https://github.com/avaj0hnson/portfolio-website' }
       ]
