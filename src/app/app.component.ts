@@ -1,6 +1,6 @@
 import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from "./shared/navbar/navbar.component";
+import { NavbarComponent } from "./layout/navbar/navbar.component";
 
 @Component({
   selector: 'app-root',
@@ -11,5 +11,4 @@ import { NavbarComponent } from "./shared/navbar/navbar.component";
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppComponent {
-  title = 'portfolio-website';
 }

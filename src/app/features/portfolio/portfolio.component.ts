@@ -1,9 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ProjectCardComponent } from './project-card/project-card.component';
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { Project, ProjectCategory } from '../../shared/models/project.model';
 import { ProjectModalComponent } from './project-modal/project-modal.component';
+import { Project, ProjectCategory } from './models/project.model';
 
 @Component({
   selector: 'app-portfolio',
@@ -22,7 +21,7 @@ export class PortfolioComponent {
       title: 'Petal Timer',
       description: 'A cute, modern Pomodoro timer designed around a real 8–5 workday, complete with customizable hours, live session tracking, and collectible badges. Built with Angular, TailwindCSS, and a soft, motivating aesthetic.',
       image: 'img/petaltimer-thumbnail.png',
-      category: ['websites', 'me'],
+      category: ['websites'],
       tags: ['Angular', 'Tailwind'],
       links: [
         { label: 'GitHub', url: 'https://github.com/avaj0hnson/petal-timer' }

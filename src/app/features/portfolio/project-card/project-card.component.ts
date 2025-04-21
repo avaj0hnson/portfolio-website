@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Project } from '../../../shared/models/project.model';
+import { Project } from '../models/project.model';
 
 @Component({
   selector: 'app-project-card',

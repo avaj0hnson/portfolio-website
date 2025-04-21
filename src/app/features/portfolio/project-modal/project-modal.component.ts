@@ -1,6 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Project } from '../../../shared/models/project.model';
 import {
   trigger,
   transition,
@@ -8,6 +7,7 @@ import {
   animate
 } from '@angular/animations';
 import { HostListener } from '@angular/core';
+import { Project } from '../models/project.model';
 
 @Component({
   selector: 'app-project-modal',
