@@ -2,7 +2,7 @@
 
 A modern, animated portfolio built with **Angular**, **TailwindCSS**, and **TypeScript**, designed to showcase personal projects, technical skills, and contact capabilities — all following scalable, maintainable structure with standalone components.
 
-![screenshot](img/portfolio-thumbnail.png)
+![screenshot](public/img/portfolio-thumbnail.png)
 
 ---
 
