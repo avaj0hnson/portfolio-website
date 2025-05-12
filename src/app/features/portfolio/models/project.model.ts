@@ -12,4 +12,5 @@ export interface Project {
     category: ProjectCategory[];
     tags?: string[];
     links: ProjectLink[];
+    inProgress?: boolean;
 }
