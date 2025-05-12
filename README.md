@@ -1,27 +1,50 @@
-# PortfolioWebsite
+# 🌐 Portfolio Website
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.3.
+A modern, animated portfolio built with **Angular**, **TailwindCSS**, and **TypeScript**, designed to showcase personal projects, technical skills, and contact capabilities — all following scalable, maintainable structure with standalone components.
 
-## Development server
+![screenshot](assets/img/portfolio-thumbnail.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- 🔩 **Modular Feature Architecture** – Organized by domain (features, layout, models)
+- ⚙️ **Angular Standalone Components** – Lightweight, fast-bootstrapping setup
+- 💨 **TailwindCSS Styling** – Utility-first styling for modern responsive UI
+- 💬 **Contact Form** – Integrated with Formspree for easy message sending
+- ✨ **Typing Intro Effect** – Smooth animated intro text using `typed.js`
+- 📁 **Filterable Project Showcase** – Modal-based detail view and category filters
+- 🔐 **Fully Unit Tested** – Coverage across logic and user interactions
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 📁 Project Structure
 
-## Running unit tests
+```text
+src/
+├── app/
+│   ├── features/
+│   │   ├── contact/           → Contact form component
+│   │   ├── home/              → Hero section with typing animation
+│   │   ├── portfolio/
+│   │   │   ├── models/        → `Project` model & category types
+│   │   │   ├── project-card/  → Reusable card component per project
+│   │   │   └── project-modal/ → Modal for viewing project details
+│   │   └── skills/            → Skill badges and levels
+│   ├── layout/
+│   │   └── navbar/            → Responsive navigation bar
+│   └── models/                → Shared models (if any)
+├── assets/                    → Images, icons, and static files
+├── styles/                    → Global styles and Tailwind config
+└── index.html
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## 🧪 Testing
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Each component includes unit tests using Angular’s built-in test utilities and `HttpClientTestingModule`.
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+To run tests:
+```bash
+ng test
