@@ -24,8 +24,7 @@ export class PortfolioComponent {
       category: ['websites'],
       tags: ['Angular', 'Tailwind', 'Chart.js'],
       links: [
-        { label: 'GitHub', url: 'https://github.com/avaj0hnson/grain' },
-        { label: 'Live Site', url: 'https://grain.netlify.app/' },
+        { label: 'GitHub', url: 'https://github.com/avaj0hnson/grain' }
       ],
       inProgress: true
     },
