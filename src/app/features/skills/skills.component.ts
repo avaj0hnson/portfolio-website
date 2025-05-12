@@ -17,11 +17,16 @@ export class SkillsComponent {
     { name: 'Tailwind CSS', iconClass: 'devicon-tailwindcss-plain colored', level: 'Intermediate' },
     { name: 'HTML5', iconClass: 'devicon-html5-plain colored', level: 'Proficient' },
     { name: 'CSS3', iconClass: 'devicon-css3-plain colored', level: 'Proficient' },
-    { name: 'C#', iconClass: 'devicon-csharp-line colored', level: 'Intermediate' },
+    { name: 'C#', iconClass: 'devicon-csharp-line colored', level: 'Proficient' },
+    { name: '.NET', iconClass: 'devicon-dotnetcore-plain colored', level: 'Proficient' },
+    { name: 'GraphQL', iconClass: 'devicon-graphql-plain colored', level: 'Intermediate' },
     { name: 'SQL', iconClass: 'devicon-mysql-plain colored', level: 'Intermediate' },
-    { name: '.NET', iconClass: 'devicon-dotnetcore-plain colored', level: 'Intermediate' },
+    { name: 'MongoDB', iconClass: 'devicon-mongodb-plain colored', level: 'Intermediate' },
     { name: 'Azure', iconClass: 'devicon-azure-plain colored', level: 'Intermediate' },
-    { name: 'Git', iconClass: 'devicon-git-plain colored', level: 'Intermediate' },
+    { name: 'Git', iconClass: 'devicon-git-plain colored', level: 'Proficient' },
+    { name: 'GitHub', iconClass: 'devicon-github-plain colored', level: 'Proficient' },
+    { name: 'Bitbucket', iconClass: 'devicon-bitbucket-plain colored', level: 'Proficient' },
+    { name: 'Jest', iconClass: 'devicon-jest-plain colored', level: 'Proficient' },
   ];
 
   getLevelColor(level: string): string {
