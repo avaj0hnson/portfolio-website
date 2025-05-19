@@ -20,7 +20,7 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
       const options = {
-        strings: ['Software Engineer.', 'Web Developer.', 'Angular Enthusiast.'],
+        strings: ['Software Engineer.', 'Web Developer.'],
         typeSpeed: 50,
         backSpeed: 30,
         loop: true
