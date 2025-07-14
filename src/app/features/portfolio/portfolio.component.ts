@@ -18,17 +18,6 @@ export class PortfolioComponent {
 
   projects: Project[] = [
     {
-      title: 'Grain',
-      description: 'A soft modern budgeting app to track expenses, visualize spending by category, and monitor income. Features include dynamic charts, tab-based views (table, pie chart, graph), and a clean Angular architecture. Built with Angular, Tailwind CSS, and Font Awesome.',
-      image: 'img/grain-thumbnail.png',
-      category: ['websites'],
-      tags: ['Angular', 'Tailwind', 'Chart.js'],
-      links: [
-        { label: 'GitHub', url: 'https://github.com/avaj0hnson/grain' }
-      ],
-      inProgress: true
-    },
-    {
       title: 'Petal Timer',
       description: 'A cute, modern Pomodoro timer designed around a real 8–5 workday, complete with customizable hours, live session tracking, and collectible badges. Built with Angular, TailwindCSS, and a soft, motivating aesthetic.',
       image: 'img/petaltimer-thumbnail.png',
