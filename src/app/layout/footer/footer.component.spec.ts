@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { FooterComponent } from './footer.component';
 
 describe('FooterComponent', () => {
@@ -19,5 +18,11 @@ describe('FooterComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should display the current year', () => {
+    const compiled = fixture.nativeElement as HTMLElement;
+    const currentYear = new Date().getFullYear().toString();
+    expect(compiled.textContent).toContain(currentYear);
   });
 });
