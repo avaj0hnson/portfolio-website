@@ -1,4 +1,5 @@
 # 🌐 Portfolio Website
+[![codecov](https://codecov.io/gh/avaj0hnson/portfolio-website/branch/main/graph/badge.svg)](https://codecov.io/gh/avaj0hnson/portfolio-website)
 
 A modern, animated portfolio built with **Angular**, **TailwindCSS**, and **TypeScript**, designed to showcase personal projects, technical skills, and contact capabilities — all following scalable, maintainable structure with standalone components.
 
