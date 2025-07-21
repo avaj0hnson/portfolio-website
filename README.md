@@ -25,27 +25,38 @@ A modern, animated portfolio built with **Angular**, **TailwindCSS**, and **Type
 src/
 ├── app/
 │   ├── features/
-│   │   ├── contact/           → Contact form component
-│   │   ├── home/              → Hero section with typing animation
-│   │   ├── portfolio/
-│   │   │   ├── models/        → `Project` model & category types
-│   │   │   ├── project-card/  → Reusable card component per project
-│   │   │   └── project-modal/ → Modal for viewing project details
-│   │   └── skills/            → Skill badges and levels
+│   │   ├── contact/             → Contact form section
+│   │   ├── home/                → Hero section with animation
+│   │   ├── portfolio/           → Projects showcase
+│   │   │   ├── models/          → Project types and enums
+│   │   │   ├── project-card/    → Project card component
+│   │   │   └── project-modal/   → Project detail modal
+│   │   └── skills/              → Skills and tools section
 │   ├── layout/
-│   │   └── navbar/            → Responsive navigation bar
-│   └── models/                → Shared models (if any)
-├── assets/                    → Images, icons, and static files
-├── styles/                    → Global styles and Tailwind config
-└── index.html
+│   │   ├── footer/              → Site footer
+│   │   └── navbar/              → Top navigation bar
+│   ├── app.component.*          → Root component files
+│   ├── app.config.*             → App-wide configuration
+│   └── app.routes.ts            → Route definitions
+├── index.html                   → Main HTML entry
+├── main.ts                      → App bootstrap
+├── main.server.ts               → SSR entry point
+├── server.ts                    → Express server (SSR)
+├── tailwind-setup.scss          → Tailwind config
+├── styles.scss                  → Global styles
+├── angular.json                 → Angular config
+├── package.json                 → Project dependencies
+└── README.md                    → Project overview
 ```
 
 ---
 
 ## 🧪 Testing
 
-Each component includes unit tests using Angular’s built-in test utilities and `HttpClientTestingModule`.
+This project includes unit tests for all major components.
 
-To run tests:
 ```bash
-ng test
+ng test --code-coverage
+```
+
+View full coverage on [Codecov](https://app.codecov.io/gh/avaj0hnson/portfolio-website)
