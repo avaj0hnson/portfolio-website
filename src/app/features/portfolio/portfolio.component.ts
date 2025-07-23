@@ -38,14 +38,13 @@ export class PortfolioComponent {
         { label: 'GitHub', url: 'https://github.com/avaj0hnson/portfolio-website' },
         { label: 'Live Site', url: 'https://avajohnson.dev/' }
       ]
-    },    
+    },
     {
       title: 'Reality Flow',
       description: 'Reality Flow is an experimental XR content creation platform. Our team developed the mobile app, web portal, and in-VR user interface that allow users to manage accounts, browse shared projects, and collaborate across devices. These interfaces were built using React, React Native, GraphQL, Prisma, and MongoDB, and integrated directly into the Unity-based VR experience.',
       image: 'img/realityflow-thumbnail.png',
       links: [
         { label: 'GitHub', url: 'https://github.com/orgs/many-realities-studio/teams/realityflow-gold/repositories' },
-        { label: 'Live Site', url: 'https://reality.gaim.ucf.edu/' },
         { label: 'About', url: 'https://realityflow.io/' }
       ],
       category: ['apps', 'websites'],
