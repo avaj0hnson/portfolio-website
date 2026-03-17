@@ -1,34 +1,92 @@
-.overlay {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 3;
-    background-color: rgba(0, 0, 0, 0.4);
-    top: 0;
-    left: 0;
+.hero-bg {
+  background: radial-gradient(ellipse at 50% 30%, #1B3A19 0%, #0F1A0B 50%, #080E06 100%);
 }
 
-.titleMessage {
-    position: absolute;
-    width: 100%;
-    height: 250px;
-    top: 50%;
-    z-index: 5;
-    text-align: center;
-    margin-top: -125px;
+.hero-title {
+  text-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
+  line-height: 1;
+}
 
-    .heading p {
-        color: #fff;
-        text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
-    }
+// Staggered hero entrance
+.hero-fade {
+  opacity: 0;
+  animation: heroFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
 
-    .main {
-        letter-spacing: 15px;
-        font-size: 50px;
-    }
+.hero-fade-1 { animation-delay: 0.2s; }
+.hero-fade-2 { animation-delay: 0.4s; }
+.hero-fade-3 { animation-delay: 0.6s; }
+.hero-fade-4 { animation-delay: 0.8s; }
+.hero-fade-5 { animation-delay: 1.0s; }
+.hero-fade-6 { animation-delay: 1.4s; }
 
-    .sub {
-        font-size: 23px;
-        letter-spacing: 7px;
-    }
+@keyframes heroFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Vine border animation
+.vine-path {
+  stroke-dasharray: 3000;
+  stroke-dashoffset: 3000;
+  transition: stroke-dashoffset 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vine-path-side {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  transition: stroke-dashoffset 3s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.vine-path.vine-animate {
+  stroke-dashoffset: 0;
+}
+
+.vine-leaf {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.vine-leaf-show .vine-leaf {
+  opacity: 0.5;
+  transform: scale(1);
+}
+
+// Scroll indicator pulse
+.scroll-indicator {
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-path {
+    stroke-dashoffset: 0 !important;
+    transition: none;
+  }
+  .vine-leaf {
+    opacity: 0.5;
+    transform: scale(1);
+    transition: none;
+  }
+  .hero-fade {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+@media (max-width: 640px) {
+  .vine-border {
+    opacity: 0.3;
+  }
 }

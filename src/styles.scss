@@ -15,17 +15,77 @@ $portfolio-website-theme: mat.define-theme((
 
 :root {
   @include mat.all-component-themes($portfolio-website-theme);
+
+  --bloom-duration: 0.7s;
+  --vine-duration: 1.5s;
+  --drift-duration: 8s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --bloom-duration: 0s;
+    --vine-duration: 0s;
+    --drift-duration: 0s;
+  }
+
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 @import 'tailwind-setup';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  background-color: #F5F0E8;
+  color: #3D2B1F;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Sora', system-ui, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+// Noise texture overlay for depth
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
 
 .filter-btn {
-  @apply px-4 py-2 border border-primary text-primary rounded hover:bg-primary hover:text-white transition;
+  @apply px-4 py-2 border border-primary text-primary rounded-full hover:bg-primary hover:text-white transition font-body;
 }
 
 .filter-btn.active {
   @apply bg-primary text-white;
+}
+
+// Scroll reveal
+.scroll-reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// Selection color
+::selection {
+  background: #87A878;
+  color: white;
 }

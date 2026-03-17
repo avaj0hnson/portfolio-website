@@ -1,68 +1,128 @@
-<section id="contact" class="relative py-20 bg-gradient-to-b from-white to-primary/10 overflow-hidden">
-    <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="text-3xl sm:text-4xl font-bold mb-6 text-primary">Let’s Connect</h2>
-        <p class="text-gray-600 mb-10 max-w-xl mx-auto">
-            Whether it’s to collaborate, hire me, or just say hi — I’d love to hear from you!
-        </p>
-        <!-- Floating Contact Orb -->
-        <div class="relative inline-block animate-bounce" (click)="toggleForm()">
-            <picture>
-                <source type="image/webp" srcset="img/contact-icon.webp" />
-                <img
-                    src="img/contact-icon.png"
-                    alt="Click to open contact form"
-                    class="h-20 sm:h-24 cursor-pointer transition hover:scale-110"
-                    loading="lazy"
-                    width="96"
-                    height="96"
-                />
-            </picture>
+<section id="contact" class="relative py-16 sm:py-24 bg-botanical-cream overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-[0.015]" style="background-image: radial-gradient(#2D5A27 1px, transparent 1px); background-size: 48px 48px;" aria-hidden="true"></div>
+
+    <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
+        <div appScrollReveal>
+            <p class="font-body text-botanical-sage text-xs sm:text-sm uppercase tracking-[0.3em] mb-3">Get in touch</p>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-botanical-bark mb-4">
+                Let's Connect
+            </h2>
+            <p class="font-body text-botanical-bark/50 mb-8 sm:mb-10 max-w-md mx-auto text-sm sm:text-base">
+                Whether it's to collaborate, hire me, or just say hi — I'd love to hear from you.
+            </p>
         </div>
 
-        <!-- Animated Contact Form -->
+        <!-- Flower trigger -->
+        <div
+            class="relative inline-block cursor-pointer mb-4 flower-trigger"
+            [class.is-bloomed]="revealForm"
+            (click)="toggleForm()"
+            role="button"
+            tabindex="0"
+            (keydown.enter)="toggleForm()"
+            [attr.aria-label]="revealForm ? 'Close contact form' : 'Open contact form'"
+            appScrollReveal revealDelay="0.15s"
+        >
+            <svg width="120" height="120" viewBox="0 0 120 120" aria-hidden="true" class="flower-svg">
+                <!-- Stem -->
+                <path d="M60,120 Q58,95 60,70" fill="none" stroke="#4A7C59" stroke-width="2.5" stroke-linecap="round"/>
+                <path d="M60,95 Q50,88 44,92" fill="none" stroke="#4A7C59" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M44,92 Q42,85 46,82" fill="#87A878" opacity="0.8"/>
+                <path d="M44,92 Q48,86 52,88" fill="#6B8F71" opacity="0.8"/>
+
+                <!-- Petals (bloom on click) -->
+                <g class="petals" [class.bloomed]="revealForm">
+                    <path d="M60,42 Q48,22 60,8 Q72,22 60,42" class="petal p1" fill="#E8C4C8"/>
+                    <path d="M60,42 Q80,32 88,42 Q78,52 60,42" class="petal p2" fill="#F0D0D4"/>
+                    <path d="M60,42 Q78,56 82,68 Q68,62 60,42" class="petal p3" fill="#E8C4C8"/>
+                    <path d="M60,42 Q42,56 38,68 Q52,62 60,42" class="petal p4" fill="#F0D0D4"/>
+                    <path d="M60,42 Q40,32 32,42 Q42,52 60,42" class="petal p5" fill="#E8C4C8"/>
+                    <path d="M60,42 Q50,28 42,18 Q56,26 60,42" class="petal p6" fill="#EAD0D4"/>
+                    <path d="M60,42 Q70,28 78,18 Q64,26 60,42" class="petal p7" fill="#EAD0D4"/>
+                </g>
+
+                <!-- Center -->
+                <circle cx="60" cy="42" r="8" fill="#C8A951" class="flower-center"/>
+                <circle cx="60" cy="42" r="4" fill="#B89940" class="flower-center-inner"/>
+
+                <!-- Bud (shown when closed) -->
+                <g *ngIf="!revealForm" class="bud">
+                    <ellipse cx="60" cy="40" rx="10" ry="16" fill="#87A878"/>
+                    <ellipse cx="57" cy="38" rx="7" ry="14" fill="#6B8F71"/>
+                    <path d="M54,30 Q60,24 66,30" fill="none" stroke="#4A7C59" stroke-width="1"/>
+                </g>
+            </svg>
+
+            <p class="font-body text-botanical-sage text-xs mt-2 transition-opacity" [class.opacity-0]="revealForm">
+                {{ revealForm ? '' : 'Click to bloom' }}
+            </p>
+        </div>
+
+        <!-- Contact Form -->
         <div
             *ngIf="revealForm"
             @slideUp
-            class="mt-10 bg-white rounded-lg shadow-lg p-6 w-full max-w-lg mx-auto"
+            class="mt-6 sm:mt-8 bg-white rounded-3xl shadow-xl p-6 sm:p-8 w-full max-w-lg mx-auto border border-botanical-sage/8 relative overflow-hidden"
         >
+            <!-- Decorative corner vines -->
+            <svg class="absolute top-0 left-0 w-24 h-24 text-botanical-sage/10 pointer-events-none" viewBox="0 0 100 100" aria-hidden="true">
+                <path d="M0,0 Q30,5 20,30 Q10,20 15,40 Q5,35 10,55" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="20" cy="30" r="3" fill="currentColor"/>
+                <circle cx="10" cy="55" r="2" fill="currentColor"/>
+            </svg>
+            <svg class="absolute bottom-0 right-0 w-24 h-24 text-botanical-sage/10 pointer-events-none rotate-180" viewBox="0 0 100 100" aria-hidden="true">
+                <path d="M0,0 Q30,5 20,30 Q10,20 15,40 Q5,35 10,55" fill="none" stroke="currentColor" stroke-width="1.5"/>
+                <circle cx="20" cy="30" r="3" fill="currentColor"/>
+                <circle cx="10" cy="55" r="2" fill="currentColor"/>
+            </svg>
+
             <form
                 #contactForm="ngForm"
                 (ngSubmit)="onSubmit(contactForm)"
-                class="grid gap-4"
+                class="relative z-[1] grid gap-4"
                 novalidate
             >
-                <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                required
-                ngModel
-                class="input"
-                />
-            
-                <textarea
-                name="message"
-                rows="5"
-                placeholder="Your Message"
-                required
-                ngModel
-                class="input"
-                ></textarea>
-            
+                <div>
+                    <label for="email" class="font-body text-botanical-bark/70 text-xs font-medium block text-left mb-1.5">Email</label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="you@example.com"
+                        required
+                        ngModel
+                        class="font-body w-full border border-botanical-sage/15 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-botanical-cream/20 placeholder:text-botanical-bark/25"
+                    />
+                </div>
+
+                <div>
+                    <label for="message" class="font-body text-botanical-bark/70 text-xs font-medium block text-left mb-1.5">Message</label>
+                    <textarea
+                        id="message"
+                        name="message"
+                        rows="4"
+                        placeholder="What's on your mind?"
+                        required
+                        ngModel
+                        class="font-body w-full border border-botanical-sage/15 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-botanical-cream/20 resize-none placeholder:text-botanical-bark/25"
+                    ></textarea>
+                </div>
+
                 <button
-                type="submit"
-                [disabled]="isSending"
-                class="bg-primary text-white py-2 px-6 rounded hover:scale-105 transition"
+                    type="submit"
+                    [disabled]="isSending"
+                    class="font-display font-semibold bg-primary text-white py-3 px-8 rounded-xl hover:bg-primary-light transition-all duration-300 text-sm disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5 active:translate-y-0"
                 >
-                {{ isSending ? 'Sending...' : 'Send Message' }}
+                    {{ isSending ? 'Sending...' : 'Send Message' }}
                 </button>
             </form>
-            
+
             <div
                 *ngIf="submitted"
-                class="mt-4 text-green-600 font-medium animate-fade-in"
+                class="mt-4 font-body text-primary font-medium text-sm animate-fade-in-up"
             >
-                ✅ Message sent! I'll get back to you soon.
+                Message sent! I'll get back to you soon.
             </div>
         </div>
     </div>

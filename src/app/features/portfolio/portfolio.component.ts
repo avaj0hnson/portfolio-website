@@ -3,11 +3,12 @@ import { Component } from '@angular/core';
 import { ProjectCardComponent } from './project-card/project-card.component';
 import { ProjectModalComponent } from './project-modal/project-modal.component';
 import { Project, ProjectCategory } from './models/project.model';
+import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.directive';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [CommonModule, ProjectCardComponent, ProjectModalComponent],
+  imports: [CommonModule, ProjectCardComponent, ProjectModalComponent, ScrollRevealDirective],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.scss'
 })

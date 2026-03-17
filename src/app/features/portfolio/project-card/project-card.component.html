@@ -1,40 +1,45 @@
 <div
-    class="rounded-lg shadow overflow-hidden transform transition duration-300 ease-in-out hover:scale-105 cursor-pointer"
+    class="group relative bg-white rounded-2xl shadow-sm overflow-hidden cursor-pointer border border-botanical-sage/6 hover:shadow-xl hover:shadow-botanical-leaf/8 transition-shadow duration-500"
     (click)="select.emit()"
+    appTilt [tiltIntensity]="5" [tiltScale]="1.02"
 >
-
     <div
         *ngIf="project.inProgress"
-        class="absolute top-2 left-2 bg-red-600 text-white text-xs font-semibold px-2 py-1 rounded shadow z-10"
+        class="absolute top-3 left-3 bg-accent text-white text-[10px] font-display font-semibold px-3 py-1 rounded-lg shadow z-10 uppercase tracking-wider"
     >
         In Progress
     </div>
 
-    <picture>
-        <source type="image/webp" [srcset]="webpSrcset" sizes="(max-width: 640px) 640px, 1280px" />
-        <img
-            [src]="project.image"
-            [alt]="project.title"
-            [title]="project.title"
-            class="w-full h-48 object-cover"
-            loading="lazy"
-            width="640"
-            height="192"
-        />
-    </picture>
-    <div class="p-4 bg-white">
-        <h3 class="text-lg font-semibold mb-2">{{ project.title }}</h3>
-        <p class="text-sm text-gray-600 mb-3">{{ project.description }}</p>
+    <div class="overflow-hidden">
+        <picture>
+            <source type="image/webp" [srcset]="webpSrcset" sizes="(max-width: 640px) 640px, 1280px" />
+            <img
+                [src]="project.image"
+                [alt]="project.title"
+                [title]="project.title"
+                class="w-full h-44 sm:h-52 object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                loading="lazy"
+                width="640"
+                height="208"
+            />
+        </picture>
+    </div>
 
-        <div *ngIf="project.links?.length" class="flex flex-wrap gap-4 mt-2">
+    <div class="p-5 sm:p-6">
+        <h3 class="font-display text-base sm:text-lg font-bold mb-2 text-botanical-bark">{{ project.title }}</h3>
+        <p class="font-body text-sm text-botanical-bark/50 mb-4 line-clamp-2 leading-relaxed">{{ project.description }}</p>
+
+        <div *ngIf="project.links?.length" class="flex flex-wrap gap-3">
             <a
                 *ngFor="let link of project.links"
                 [href]="link.url"
                 target="_blank"
-                rel="noopener"
-                class="text-primary hover:underline text-sm"
+                rel="noopener noreferrer"
+                class="font-display text-primary text-xs sm:text-sm font-semibold hover:text-primary-light transition-colors group/link"
+                (click)="$event.stopPropagation()"
             >
-                {{ link.label }} →
+                {{ link.label }}
+                <span class="inline-block transition-transform group-hover/link:translate-x-0.5">→</span>
             </a>
         </div>
     </div>

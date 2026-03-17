@@ -1,58 +1,114 @@
-<div class="carousel-wrapper relative h-screen w-full overflow-hidden">
+<section class="hero relative h-screen w-full overflow-hidden" aria-label="Hero introduction">
+    <!-- Botanical gradient background -->
+    <div class="hero-bg absolute inset-0 z-0"></div>
 
-    <div class="overlay"></div>
+    <!-- Flowers bloom where you hover -->
+    <app-ambient-blooms [mouseX]="heroMouseX" [mouseY]="heroMouseY"></app-ambient-blooms>
 
-    <swiper-container
-        slides-per-view="1"
-        loop="true"
-        autoplay="true"
-        class="mySwiper absolute inset-0 w-full h-full z-0"
+    <!-- Floating leaf particles (parallax layer) -->
+    <div class="absolute inset-0 z-[1] transition-transform duration-[80ms] ease-out" [style.transform]="parallaxParticles">
+        <app-leaf-particles [count]="16" leafColor="#6B8F71"></app-leaf-particles>
+    </div>
+
+    <!-- Animated vine border (parallax layer) -->
+    <svg
+        class="vine-border absolute inset-0 w-full h-full z-[2] pointer-events-none transition-transform duration-[80ms] ease-out"
+        viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true"
+        [style.transform]="parallaxVines"
     >
-        <swiper-slide>
-            <picture>
-                <source type="image/webp" srcset="img/slide1-640w.webp 640w, img/slide1-1280w.webp 1280w, img/slide1.webp 1920w" sizes="100vw" />
-                <img src="img/slide1.jpg" class="w-full h-full object-cover" alt="Lush green foliage background" loading="eager" width="1920" height="1080" />
-            </picture>
-        </swiper-slide>
-        <swiper-slide>
-            <picture>
-                <source type="image/webp" srcset="img/slide2-640w.webp 640w, img/slide2-1280w.webp 1280w, img/slide2.webp 1920w" sizes="100vw" />
-                <img src="img/slide2.jpg" class="w-full h-full object-cover" alt="Nature-inspired workspace scene" loading="lazy" width="1920" height="1080" />
-            </picture>
-        </swiper-slide>
-        <swiper-slide>
-            <picture>
-                <source type="image/webp" srcset="img/slide3-640w.webp 640w, img/slide3-1280w.webp 1280w, img/slide3.webp 1920w" sizes="100vw" />
-                <img src="img/slide3.jpg" class="w-full h-full object-cover" alt="Serene landscape with greenery" loading="lazy" width="1920" height="1080" />
-            </picture>
-        </swiper-slide>
-    </swiper-container>
+        <!-- Top vine -->
+        <path
+            d="M0,20 Q200,60 400,25 T800,35 Q1000,15 1200,40 T1440,20"
+            fill="none" stroke="#4A7C59" stroke-width="2" stroke-linecap="round"
+            class="vine-path" [class.vine-animate]="vineAnimated" opacity="0.5"
+        />
+        <!-- Bottom vine -->
+        <path
+            d="M0,880 Q300,850 500,875 T900,860 Q1100,885 1300,865 T1440,880"
+            fill="none" stroke="#4A7C59" stroke-width="2" stroke-linecap="round"
+            class="vine-path" [class.vine-animate]="vineAnimated" opacity="0.5"
+        />
+        <!-- Left vine -->
+        <path
+            d="M20,0 Q50,200 25,400 T35,700 Q15,800 30,900"
+            fill="none" stroke="#4A7C59" stroke-width="1.5" stroke-linecap="round"
+            class="vine-path vine-path-side" [class.vine-animate]="vineAnimated" opacity="0.4"
+        />
+        <!-- Right vine -->
+        <path
+            d="M1420,0 Q1390,250 1415,450 T1405,700 Q1425,800 1410,900"
+            fill="none" stroke="#4A7C59" stroke-width="1.5" stroke-linecap="round"
+            class="vine-path vine-path-side" [class.vine-animate]="vineAnimated" opacity="0.4"
+        />
 
-    <div class="titleMessage flex flex-col items-center justify-center backdrop-blur-sm">
-        <div class="heading mb-4">
-            <p class="main">AVA JOHNSON</p>
-            <p class="sub"><span #typedElement></span></p>
+        <!-- Decorative leaves -->
+        <g [class.vine-leaf-show]="vineAnimated">
+            <circle cx="200" cy="50" r="5" fill="#87A878" class="vine-leaf" style="transition-delay: 0.8s"/>
+            <circle cx="600" cy="30" r="4" fill="#6B8F71" class="vine-leaf" style="transition-delay: 1s"/>
+            <circle cx="1000" cy="25" r="6" fill="#87A878" class="vine-leaf" style="transition-delay: 1.2s"/>
+            <circle cx="30" cy="300" r="4" fill="#6B8F71" class="vine-leaf" style="transition-delay: 1.1s"/>
+            <circle cx="25" cy="600" r="5" fill="#87A878" class="vine-leaf" style="transition-delay: 1.3s"/>
+            <circle cx="1410" cy="350" r="5" fill="#87A878" class="vine-leaf" style="transition-delay: 1s"/>
+            <circle cx="1420" cy="650" r="4" fill="#6B8F71" class="vine-leaf" style="transition-delay: 1.2s"/>
+            <circle cx="400" cy="870" r="5" fill="#87A878" class="vine-leaf" style="transition-delay: 1.1s"/>
+            <circle cx="900" cy="860" r="4" fill="#6B8F71" class="vine-leaf" style="transition-delay: 1.3s"/>
+        </g>
+    </svg>
+
+    <!-- Center content (parallax layer - moves opposite to mouse) -->
+    <div
+        #heroContent
+        class="hero-content absolute inset-0 z-[3] flex flex-col items-center justify-center text-center px-4 transition-transform duration-[80ms] ease-out"
+        [style.transform]="parallaxText"
+    >
+        <div class="mb-8">
+            <p class="font-body text-botanical-sage/60 text-xs sm:text-sm uppercase tracking-[0.4em] mb-4 hero-fade hero-fade-1">
+                Portfolio of
+            </p>
+            <h1 class="font-display text-botanical-cream text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight hero-title hero-fade hero-fade-2">
+                Ava Johnson
+            </h1>
+            <div class="h-[1px] w-16 sm:w-24 bg-botanical-sage/30 mx-auto my-4 sm:my-6 hero-fade hero-fade-3"></div>
+            <p class="font-body text-botanical-sage text-base sm:text-lg md:text-xl tracking-wide hero-fade hero-fade-4">
+                <span #typedElement></span>
+            </p>
         </div>
-    
-        <div class="flex gap-4 mt-6">
+
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 hero-fade hero-fade-5">
             <button
-                class="bg-primary text-white px-6 py-2 rounded shadow-md hover:bg-primary-dark transform hover:scale-105 transition duration-200 ease-in-out"
+                class="font-display font-semibold bg-white/10 backdrop-blur-sm text-botanical-cream px-8 py-3 rounded-xl border border-white/20 hover:bg-white/20 hover:border-white/40 transform hover:scale-105 hover:-translate-y-0.5 transition-all duration-300 text-sm"
                 (click)="scrollToPortfolio()"
-                >
-                Portfolio
+            >
+                View Work
             </button>
 
             <a
                 href="https://linkedin.com/in/avaj0hnson"
                 target="_blank"
-                rel="noopener"
-                class="px-6 py-2 border border-white text-white rounded transform hover:scale-105 hover:bg-white hover:text-primary transition duration-200 ease-in-out"
+                rel="noopener noreferrer"
+                class="font-display font-semibold text-botanical-cream/70 px-8 py-3 rounded-xl hover:text-botanical-cream hover:bg-white/5 transform hover:scale-105 transition-all duration-300 text-sm"
             >
-                LinkedIn
+                LinkedIn →
             </a>
         </div>
     </div>
-</div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-[4] hero-fade hero-fade-6">
+        <div class="scroll-indicator w-5 h-8 rounded-full border-2 border-botanical-sage/30 flex items-start justify-center p-1">
+            <div class="w-1 h-2 rounded-full bg-botanical-sage/50 animate-bounce"></div>
+        </div>
+    </div>
+</section>
+
+<app-section-divider bgFrom="#0F1A0B" bgTo="#F5F0E8"></app-section-divider>
+
 <app-skills></app-skills>
+
+<app-section-divider bgFrom="#F5F0E8" bgTo="#ffffff" [flip]="true"></app-section-divider>
+
 <app-portfolio></app-portfolio>
+
+<app-section-divider bgFrom="#ffffff" bgTo="#F5F0E8"></app-section-divider>
+
 <app-contact></app-contact>

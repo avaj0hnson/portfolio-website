@@ -1,20 +1,39 @@
-<section id="skills" class="py-20 bg-white text-center">
-    <h2 class="text-3xl sm:text-4xl font-bold mb-10">Skills & Technologies</h2>
+<section id="skills" class="py-16 sm:py-24 bg-botanical-cream relative overflow-hidden">
+    <!-- Subtle background pattern -->
+    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(#2D5A27 1px, transparent 1px); background-size: 40px 40px;" aria-hidden="true"></div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 max-w-5xl mx-auto px-4">
-        <div
-            *ngFor="let skill of skills"
-            class="group relative bg-white shadow-lg rounded-xl p-4 transition-transform transform hover:-translate-y-1 hover:scale-105 duration-300"
-        >
-            <i [class]="skill.iconClass + ' text-6xl mb-3 transition-all duration-300'"></i>
-            <p class="text-gray-700 font-medium">{{ skill.name }}</p>
+    <div class="relative max-w-6xl mx-auto px-4">
+        <div class="text-center mb-12 sm:mb-16" appScrollReveal>
+            <p class="font-body text-botanical-sage text-xs sm:text-sm uppercase tracking-[0.3em] mb-3">What I work with</p>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-botanical-bark">
+                Skills & Technologies
+            </h2>
+        </div>
 
-            <!-- Hover overlay -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
             <div
-                class="absolute inset-0 text-white text-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"
-                [ngClass]="getLevelColor(skill.level)"
+                *ngFor="let skill of skills; let i = index"
+                class="group relative overflow-hidden bg-white rounded-2xl border border-botanical-sage/8 cursor-default skill-card"
+                appScrollReveal [revealDelay]="(i * 0.04) + 's'"
+                appTilt [tiltIntensity]="6" [tiltScale]="1.04" [tiltGlare]="false"
             >
-                {{ skill.level }}
+                <!-- Level color accent bar at top -->
+                <div class="h-1 w-full transition-all duration-500 group-hover:h-1.5" [style.background]="getLevelBarColor(skill.level)"></div>
+
+                <!-- Content -->
+                <div class="p-4 sm:p-5 text-center">
+                    <i [class]="skill.iconClass + ' text-3xl sm:text-4xl mb-3 block transition-transform duration-300 group-hover:scale-110'"></i>
+                    <p class="font-display text-botanical-bark font-semibold text-xs sm:text-sm mb-3">{{ skill.name }}</p>
+
+                    <!-- Vine progress bar -->
+                    <app-vine-bar [level]="skill.level"></app-vine-bar>
+
+                    <!-- Level label -->
+                    <p class="font-body text-[10px] sm:text-xs mt-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-1 group-hover:translate-y-0"
+                       [style.color]="getLevelBarColor(skill.level)">
+                        {{ skill.level }}
+                    </p>
+                </div>
             </div>
         </div>
     </div>

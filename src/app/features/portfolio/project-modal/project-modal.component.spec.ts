@@ -76,7 +76,7 @@ describe('ProjectModalComponent', () => {
   });
 
   it('should render tags', () => {
-    const tags = fixture.nativeElement.querySelectorAll('.bg-gray-100');
+    const tags = fixture.nativeElement.querySelectorAll('.bg-botanical-cream');
     expect(tags.length).toBe(2);
     expect(tags[0].textContent).toContain('Angular');
     expect(tags[1].textContent).toContain('TypeScript');

@@ -59,13 +59,13 @@ describe('ProjectCardComponent', () => {
   it('should show In Progress badge when project is in progress', () => {
     component.project = { ...component.project, inProgress: true };
     fixture.detectChanges();
-    const badge = fixture.nativeElement.querySelector('.bg-red-600');
+    const badge = fixture.nativeElement.querySelector('.bg-accent');
     expect(badge).toBeTruthy();
     expect(badge.textContent).toContain('In Progress');
   });
 
   it('should not show In Progress badge by default', () => {
-    const badge = fixture.nativeElement.querySelector('.bg-red-600');
+    const badge = fixture.nativeElement.querySelector('.bg-accent');
     expect(badge).toBeNull();
   });
 

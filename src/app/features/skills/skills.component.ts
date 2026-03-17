@@ -1,10 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { VineBarComponent } from '../../shared/components/vine-bar/vine-bar.component';
+import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.directive';
+import { TiltDirective } from '../../shared/directives/tilt.directive';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, VineBarComponent, ScrollRevealDirective, TiltDirective],
   templateUrl: './skills.component.html',
   styleUrl: './skills.component.scss'
 })
@@ -29,16 +32,31 @@ export class SkillsComponent {
 
   getLevelColor(level: string): string {
     switch (level.toLowerCase()) {
-      case 'expert':
-        return 'bg-green-600';
-      case 'proficient':
-        return 'bg-blue-600';
-      case 'intermediate':
-        return 'bg-yellow-600';
-      case 'beginner':
-        return 'bg-red-600';
-      default:
-        return 'bg-gray-700';
+      case 'expert': return 'bg-green-600';
+      case 'proficient': return 'bg-blue-600';
+      case 'intermediate': return 'bg-yellow-600';
+      case 'beginner': return 'bg-red-600';
+      default: return 'bg-gray-700';
     }
-  }  
+  }
+
+  getLevelBarColor(level: string): string {
+    switch (level) {
+      case 'Expert': return '#C8A951';
+      case 'Proficient': return '#2D5A27';
+      case 'Intermediate': return '#4A7C59';
+      case 'Beginner': return '#87A878';
+      default: return '#87A878';
+    }
+  }
+
+  getLevelBarWidth(level: string): string {
+    switch (level) {
+      case 'Expert': return '100%';
+      case 'Proficient': return '75%';
+      case 'Intermediate': return '50%';
+      case 'Beginner': return '25%';
+      default: return '10%';
+    }
+  }
 }

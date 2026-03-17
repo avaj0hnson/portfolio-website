@@ -50,7 +50,7 @@ describe('SkillsComponent', () => {
   });
 
   it('should render skill cards in the template', () => {
-    const cards = fixture.nativeElement.querySelectorAll('.shadow-lg');
+    const cards = fixture.nativeElement.querySelectorAll('.skill-card');
     expect(cards.length).toBe(15);
   });
 
