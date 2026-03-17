@@ -40,4 +40,25 @@ describe('SkillsComponent', () => {
   it('should return correct color for Beginner', () => {
     expect(component.getLevelColor('Beginner')).toBe('bg-red-600');
   });
+
+  it('should return default color for unknown level', () => {
+    expect(component.getLevelColor('Unknown')).toBe('bg-gray-700');
+  });
+
+  it('should have exactly 15 skills', () => {
+    expect(component.skills.length).toBe(15);
+  });
+
+  it('should render skill cards in the template', () => {
+    const cards = fixture.nativeElement.querySelectorAll('.shadow-lg');
+    expect(cards.length).toBe(15);
+  });
+
+  it('every skill should have a name, iconClass, and level', () => {
+    component.skills.forEach(skill => {
+      expect(skill.name).toBeTruthy();
+      expect(skill.iconClass).toBeTruthy();
+      expect(skill.level).toBeTruthy();
+    });
+  });
 });

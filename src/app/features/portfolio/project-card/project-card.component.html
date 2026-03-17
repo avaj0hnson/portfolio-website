@@ -10,12 +10,18 @@
         In Progress
     </div>
 
-    <img
-        [src]="project.image"
-        [alt]="project.title"
-        title="{{project.title}}"
-        class="w-full h-48 object-cover"
-    />
+    <picture>
+        <source type="image/webp" [srcset]="webpSrcset" sizes="(max-width: 640px) 640px, 1280px" />
+        <img
+            [src]="project.image"
+            [alt]="project.title"
+            [title]="project.title"
+            class="w-full h-48 object-cover"
+            loading="lazy"
+            width="640"
+            height="192"
+        />
+    </picture>
     <div class="p-4 bg-white">
         <h3 class="text-lg font-semibold mb-2">{{ project.title }}</h3>
         <p class="text-sm text-gray-600 mb-3">{{ project.description }}</p>

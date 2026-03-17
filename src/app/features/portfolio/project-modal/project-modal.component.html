@@ -1,22 +1,39 @@
 <div
     class="fixed inset-0 z-50 bg-black bg-opacity-60 flex items-center justify-center"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-title"
     (click)="close.emit()"
 >
     <div
         @fadeIn
         class="bg-white rounded-lg max-w-2xl w-full p-6 relative shadow-lg"
         (click)="$event.stopPropagation()"
+        cdkTrapFocus
+        cdkTrapFocusAutoCapture
     >
         <button
             (click)="close.emit()"
             class="absolute top-4 right-4 text-gray-400 hover:text-black text-2xl"
+            aria-label="Close project details"
         >
             &times;
         </button>
 
-        <img [src]="project.image" [alt]="project.title" title="{{project.title}}" class="w-full h-64 object-cover rounded mb-4" />
+        <picture>
+            <source type="image/webp" [srcset]="webpSrcset" sizes="(max-width: 640px) 640px, 1280px" />
+            <img
+                [src]="project.image"
+                [alt]="project.title"
+                [title]="project.title"
+                class="w-full h-64 object-cover rounded mb-4"
+                loading="lazy"
+                width="672"
+                height="256"
+            />
+        </picture>
 
-        <h3 class="text-2xl font-bold mb-2">{{ project.title }}</h3>
+        <h3 id="modal-title" class="text-2xl font-bold mb-2">{{ project.title }}</h3>
         <p class="text-gray-700 mb-4">{{ project.description }}</p>
 
         <div *ngIf="project.tags?.length" class="flex flex-wrap gap-2 mb-4">
@@ -30,7 +47,7 @@
                 *ngFor="let link of project.links"
                 [href]="link.url"
                 target="_blank"
-                rel="noopener"
+                rel="noopener noreferrer"
                 class="text-primary hover:underline font-medium"
             >
                 {{ link.label }} →

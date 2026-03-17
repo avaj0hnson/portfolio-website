@@ -14,11 +14,11 @@ import { SkillsComponent } from "../skills/skills.component";
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class HomeComponent implements AfterViewInit {
-  @ViewChild('typedElement', { static: false }) typedElement!: ElementRef;
+  @ViewChild('typedElement', { static: false }) typedElement: ElementRef | undefined;
   private platformId = inject(PLATFORM_ID);
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
+    if (isPlatformBrowser(this.platformId) && this.typedElement) {
       const options = {
         strings: ['Software Engineer.', 'Web Developer.'],
         typeSpeed: 50,

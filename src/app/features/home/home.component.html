@@ -8,9 +8,24 @@
         autoplay="true"
         class="mySwiper absolute inset-0 w-full h-full z-0"
     >
-        <swiper-slide><img src="img/slide1.jpg" class="w-full h-full object-cover" alt="slide1"/></swiper-slide>
-        <swiper-slide><img src="img/slide2.jpg" class="w-full h-full object-cover" alt="slide2"/></swiper-slide>
-        <swiper-slide><img src="img/slide3.jpg" class="w-full h-full object-cover" alt="slide3"/></swiper-slide>
+        <swiper-slide>
+            <picture>
+                <source type="image/webp" srcset="img/slide1-640w.webp 640w, img/slide1-1280w.webp 1280w, img/slide1.webp 1920w" sizes="100vw" />
+                <img src="img/slide1.jpg" class="w-full h-full object-cover" alt="Lush green foliage background" loading="eager" width="1920" height="1080" />
+            </picture>
+        </swiper-slide>
+        <swiper-slide>
+            <picture>
+                <source type="image/webp" srcset="img/slide2-640w.webp 640w, img/slide2-1280w.webp 1280w, img/slide2.webp 1920w" sizes="100vw" />
+                <img src="img/slide2.jpg" class="w-full h-full object-cover" alt="Nature-inspired workspace scene" loading="lazy" width="1920" height="1080" />
+            </picture>
+        </swiper-slide>
+        <swiper-slide>
+            <picture>
+                <source type="image/webp" srcset="img/slide3-640w.webp 640w, img/slide3-1280w.webp 1280w, img/slide3.webp 1920w" sizes="100vw" />
+                <img src="img/slide3.jpg" class="w-full h-full object-cover" alt="Serene landscape with greenery" loading="lazy" width="1920" height="1080" />
+            </picture>
+        </swiper-slide>
     </swiper-container>
 
     <div class="titleMessage flex flex-col items-center justify-center backdrop-blur-sm">

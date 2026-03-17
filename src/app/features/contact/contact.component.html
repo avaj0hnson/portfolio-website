@@ -6,11 +6,17 @@
         </p>
         <!-- Floating Contact Orb -->
         <div class="relative inline-block animate-bounce" (click)="toggleForm()">
-            <img
-                src="img/contact-icon.png"
-                alt="Contact Orb"
-                class="h-20 sm:h-24 cursor-pointer transition hover:scale-110"
-            />
+            <picture>
+                <source type="image/webp" srcset="img/contact-icon.webp" />
+                <img
+                    src="img/contact-icon.png"
+                    alt="Click to open contact form"
+                    class="h-20 sm:h-24 cursor-pointer transition hover:scale-110"
+                    loading="lazy"
+                    width="96"
+                    height="96"
+                />
+            </picture>
         </div>
 
         <!-- Animated Contact Form -->

@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:portfolio-website": "node dist/portfolio-website/server/server.mjs"
+    "serve:ssr:portfolio-website": "node dist/portfolio-website/server/server.mjs",
+    "optimize-images": "node scripts/optimize-images.mjs"
   },
   "private": true,
   "dependencies": {
@@ -47,6 +48,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.5.3",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.17",
     "typescript": "~5.5.2"
   }

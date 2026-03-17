@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { A11yModule } from '@angular/cdk/a11y';
 import {
   trigger,
   transition,
@@ -12,7 +13,7 @@ import { Project } from '../models/project.model';
 @Component({
   selector: 'app-project-modal',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, A11yModule],
   templateUrl: './project-modal.component.html',
   styleUrl: './project-modal.component.scss',
   animations: [
@@ -28,10 +29,20 @@ import { Project } from '../models/project.model';
   ]
 })
 export class ProjectModalComponent {
-  @Input() project!: Project;
+  @Input({ required: true }) project!: Project;
   @Output() close = new EventEmitter<void>();
+
   @HostListener('document:keydown.escape', ['$event'])
   onEscapePress(event: KeyboardEvent) {
     this.close.emit();
+  }
+
+  get webpImage(): string {
+    return this.project.image.replace(/\.(png|jpg|jpeg)$/i, '.webp');
+  }
+
+  get webpSrcset(): string {
+    const base = this.project.image.replace(/\.(png|jpg|jpeg)$/i, '');
+    return `${base}-640w.webp 640w, ${base}.webp 1280w`;
   }
 }
