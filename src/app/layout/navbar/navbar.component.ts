@@ -1,5 +1,6 @@
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { Component, HostListener, inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { ThemeService } from '../../shared/services/theme.service';
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +12,7 @@ import { Component, HostListener, inject, OnInit, PLATFORM_ID } from '@angular/c
 export class NavbarComponent implements OnInit {
   isMenuOpen = false;
   isScrolled = false;
+  themeService = inject(ThemeService);
   private platformId = inject(PLATFORM_ID);
 
   ngOnInit(): void {
@@ -29,5 +31,13 @@ export class NavbarComponent implements OnInit {
   scrollTo(sectionId: string): void {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
     this.isMenuOpen = false;
+  }
+
+  get isDark(): boolean {
+    return this.themeService.isDark;
+  }
+
+  toggleTheme(): void {
+    this.themeService.toggle();
   }
 }

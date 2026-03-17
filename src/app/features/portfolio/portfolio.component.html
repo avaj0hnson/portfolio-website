@@ -1,8 +1,8 @@
-<section id="portfolio" class="py-16 sm:py-24 bg-white relative overflow-hidden">
+<section id="portfolio" class="py-16 sm:py-24 bg-white dark:bg-[#0D160A] relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
         <div class="text-center mb-12 sm:mb-16" appScrollReveal>
             <p class="font-body text-botanical-sage text-xs sm:text-sm uppercase tracking-[0.3em] mb-3">Selected work</p>
-            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-botanical-bark">
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-botanical-bark dark:text-botanical-cream">
                 Portfolio
             </h2>
         </div>
@@ -13,7 +13,7 @@
                 (click)="setFilter(cat)"
                 [ngClass]="{
                     'bg-primary text-white shadow-lg shadow-primary/20': selectedCategory === cat,
-                    'bg-botanical-cream text-botanical-bark hover:bg-primary/5': selectedCategory !== cat
+                    'bg-botanical-cream dark:bg-[#1A2F1A] text-botanical-bark dark:text-botanical-cream/70 hover:bg-primary/5': selectedCategory !== cat
                 }"
                 class="font-display font-medium px-5 sm:px-6 py-2 sm:py-2.5 rounded-xl transition-all duration-300 text-xs sm:text-sm"
             >

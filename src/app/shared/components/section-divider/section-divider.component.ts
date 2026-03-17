@@ -1,10 +1,12 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject, PLATFORM_ID, OnInit } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-section-divider',
   standalone: true,
   template: `
-    <div class="section-divider" [style.background-color]="bgFrom" aria-hidden="true">
+    <div class="section-divider" [style.background-color]="activeBgFrom" aria-hidden="true">
       <svg
         viewBox="0 0 1440 80"
         preserveAspectRatio="none"
@@ -13,9 +15,8 @@ import { Component, Input } from '@angular/core';
       >
         <path
           [attr.d]="wavePath"
-          [attr.fill]="bgTo"
+          [attr.fill]="activeBgTo"
         />
-        <!-- Decorative leaf accents -->
         <circle cx="360" cy="40" r="3" fill="#87A878" opacity="0.5"/>
         <circle cx="720" cy="30" r="4" fill="#87A878" opacity="0.4"/>
         <circle cx="1080" cy="45" r="3" fill="#87A878" opacity="0.5"/>
@@ -34,8 +35,20 @@ import { Component, Input } from '@angular/core';
 export class SectionDividerComponent {
   @Input() bgFrom = '#F5F0E8';
   @Input() bgTo = '#ffffff';
+  @Input() darkBgFrom = '';
+  @Input() darkBgTo = '';
   @Input() height = 60;
   @Input() flip = false;
+
+  themeService = inject(ThemeService);
+
+  get activeBgFrom(): string {
+    return this.themeService.isDark && this.darkBgFrom ? this.darkBgFrom : this.bgFrom;
+  }
+
+  get activeBgTo(): string {
+    return this.themeService.isDark && this.darkBgTo ? this.darkBgTo : this.bgTo;
+  }
 
   get wavePath(): string {
     if (this.flip) {

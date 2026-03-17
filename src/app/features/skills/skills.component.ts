@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { VineBarComponent } from '../../shared/components/vine-bar/vine-bar.component';
 import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.directive';
 import { TiltDirective } from '../../shared/directives/tilt.directive';
+import { ThemeService } from '../../shared/services/theme.service';
 
 @Component({
   selector: 'app-skills',
@@ -40,12 +41,15 @@ export class SkillsComponent {
     }
   }
 
+  private themeService = inject(ThemeService);
+
   getLevelBarColor(level: string): string {
+    const dark = this.themeService.isDark;
     switch (level) {
-      case 'Expert': return '#C8A951';
-      case 'Proficient': return '#2D5A27';
-      case 'Intermediate': return '#4A7C59';
-      case 'Beginner': return '#87A878';
+      case 'Expert': return dark ? '#E0C565' : '#B8942A';
+      case 'Proficient': return dark ? '#7CC47C' : '#2D5A27';
+      case 'Intermediate': return dark ? '#8FD88F' : '#5A9E6F';
+      case 'Beginner': return dark ? '#C4B896' : '#A68B5B';
       default: return '#87A878';
     }
   }

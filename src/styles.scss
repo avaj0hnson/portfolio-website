@@ -45,6 +45,18 @@ body {
   color: #3D2B1F;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+.dark body,
+html.dark body {
+  background-color: #0F1A0B;
+  color: #E0D8CC;
+}
+
+html.dark ::selection {
+  background: #4A7C59;
+  color: white;
 }
 
 h1, h2, h3, h4, h5, h6 {

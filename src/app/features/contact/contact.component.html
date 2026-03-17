@@ -1,14 +1,14 @@
-<section id="contact" class="relative py-16 sm:py-24 bg-botanical-cream overflow-hidden">
+<section id="contact" class="relative py-16 sm:py-24 bg-botanical-cream dark:bg-botanical-midnight overflow-hidden">
     <!-- Background pattern -->
     <div class="absolute inset-0 opacity-[0.015]" style="background-image: radial-gradient(#2D5A27 1px, transparent 1px); background-size: 48px 48px;" aria-hidden="true"></div>
 
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <div appScrollReveal>
             <p class="font-body text-botanical-sage text-xs sm:text-sm uppercase tracking-[0.3em] mb-3">Get in touch</p>
-            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-botanical-bark mb-4">
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-botanical-bark dark:text-botanical-cream mb-4">
                 Let's Connect
             </h2>
-            <p class="font-body text-botanical-bark/50 mb-8 sm:mb-10 max-w-md mx-auto text-sm sm:text-base">
+            <p class="font-body text-botanical-bark/50 dark:text-botanical-cream/50 mb-8 sm:mb-10 max-w-md mx-auto text-sm sm:text-base">
                 Whether it's to collaborate, hire me, or just say hi — I'd love to hear from you.
             </p>
         </div>
@@ -63,7 +63,7 @@
         <div
             *ngIf="revealForm"
             @slideUp
-            class="mt-6 sm:mt-8 bg-white rounded-3xl shadow-xl p-6 sm:p-8 w-full max-w-lg mx-auto border border-botanical-sage/8 relative overflow-hidden"
+            class="mt-6 sm:mt-8 bg-white dark:bg-[#1A2F1A] rounded-3xl shadow-xl p-6 sm:p-8 w-full max-w-lg mx-auto border border-botanical-sage/8 dark:border-botanical-sage/20 relative overflow-hidden"
         >
             <!-- Decorative corner vines -->
             <svg class="absolute top-0 left-0 w-24 h-24 text-botanical-sage/10 pointer-events-none" viewBox="0 0 100 100" aria-hidden="true">
@@ -84,7 +84,7 @@
                 novalidate
             >
                 <div>
-                    <label for="email" class="font-body text-botanical-bark/70 text-xs font-medium block text-left mb-1.5">Email</label>
+                    <label for="email" class="font-body text-botanical-bark/70 dark:text-botanical-cream/60 text-xs font-medium block text-left mb-1.5">Email</label>
                     <input
                         id="email"
                         type="email"
@@ -92,12 +92,12 @@
                         placeholder="you@example.com"
                         required
                         ngModel
-                        class="font-body w-full border border-botanical-sage/15 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-botanical-cream/20 placeholder:text-botanical-bark/25"
+                        class="font-body w-full border border-botanical-sage/15 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-botanical-cream/20 dark:bg-botanical-midnight/50 dark:border-botanical-sage/20 dark:text-botanical-cream contact-input"
                     />
                 </div>
 
                 <div>
-                    <label for="message" class="font-body text-botanical-bark/70 text-xs font-medium block text-left mb-1.5">Message</label>
+                    <label for="message" class="font-body text-botanical-bark/70 dark:text-botanical-cream/60 text-xs font-medium block text-left mb-1.5">Message</label>
                     <textarea
                         id="message"
                         name="message"
@@ -105,7 +105,7 @@
                         placeholder="What's on your mind?"
                         required
                         ngModel
-                        class="font-body w-full border border-botanical-sage/15 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-botanical-cream/20 resize-none placeholder:text-botanical-bark/25"
+                        class="font-body w-full border border-botanical-sage/15 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all bg-botanical-cream/20 dark:bg-botanical-midnight/50 dark:border-botanical-sage/20 dark:text-botanical-cream resize-none contact-input"
                     ></textarea>
                 </div>
 

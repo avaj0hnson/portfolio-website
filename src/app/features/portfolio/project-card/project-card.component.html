@@ -1,5 +1,5 @@
 <div
-    class="group relative bg-white rounded-2xl shadow-sm overflow-hidden cursor-pointer border border-botanical-sage/6 hover:shadow-xl hover:shadow-botanical-leaf/8 transition-shadow duration-500"
+    class="group relative bg-white dark:bg-[#1A2F1A] rounded-2xl shadow-sm overflow-hidden cursor-pointer border border-botanical-sage/6 dark:border-botanical-sage/15 hover:shadow-xl hover:shadow-botanical-leaf/8 transition-shadow duration-500"
     (click)="select.emit()"
     appTilt [tiltIntensity]="5" [tiltScale]="1.02"
 >
@@ -26,8 +26,8 @@
     </div>
 
     <div class="p-5 sm:p-6">
-        <h3 class="font-display text-base sm:text-lg font-bold mb-2 text-botanical-bark">{{ project.title }}</h3>
-        <p class="font-body text-sm text-botanical-bark/50 mb-4 line-clamp-2 leading-relaxed">{{ project.description }}</p>
+        <h3 class="font-display text-base sm:text-lg font-bold mb-2 text-botanical-bark dark:text-botanical-cream">{{ project.title }}</h3>
+        <p class="font-body text-sm text-botanical-bark/50 dark:text-botanical-cream/50 mb-4 line-clamp-2 leading-relaxed">{{ project.description }}</p>
 
         <div *ngIf="project.links?.length" class="flex flex-wrap gap-3">
             <a

@@ -1,11 +1,11 @@
-<section id="skills" class="py-16 sm:py-24 bg-botanical-cream relative overflow-hidden">
+<section id="skills" class="py-16 sm:py-24 bg-botanical-cream dark:bg-botanical-midnight relative overflow-hidden">
     <!-- Subtle background pattern -->
-    <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(#2D5A27 1px, transparent 1px); background-size: 40px 40px;" aria-hidden="true"></div>
+    <div class="absolute inset-0 opacity-[0.02] dark:opacity-[0.04]" style="background-image: radial-gradient(#2D5A27 1px, transparent 1px); background-size: 40px 40px;" aria-hidden="true"></div>
 
     <div class="relative max-w-6xl mx-auto px-4">
         <div class="text-center mb-12 sm:mb-16" appScrollReveal>
             <p class="font-body text-botanical-sage text-xs sm:text-sm uppercase tracking-[0.3em] mb-3">What I work with</p>
-            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-botanical-bark">
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-botanical-bark dark:text-botanical-cream">
                 Skills & Technologies
             </h2>
         </div>
@@ -13,7 +13,7 @@
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
             <div
                 *ngFor="let skill of skills; let i = index"
-                class="group relative overflow-hidden bg-white rounded-2xl border border-botanical-sage/8 cursor-default skill-card"
+                class="group relative overflow-hidden bg-white dark:bg-[#1A2F1A] rounded-2xl border border-botanical-sage/8 dark:border-botanical-sage/15 cursor-default skill-card"
                 appScrollReveal [revealDelay]="(i * 0.04) + 's'"
                 appTilt [tiltIntensity]="6" [tiltScale]="1.04" [tiltGlare]="false"
             >
@@ -23,7 +23,7 @@
                 <!-- Content -->
                 <div class="p-4 sm:p-5 text-center">
                     <i [class]="skill.iconClass + ' text-3xl sm:text-4xl mb-3 block transition-transform duration-300 group-hover:scale-110'"></i>
-                    <p class="font-display text-botanical-bark font-semibold text-xs sm:text-sm mb-3">{{ skill.name }}</p>
+                    <p class="font-display text-botanical-bark dark:text-botanical-cream font-semibold text-xs sm:text-sm mb-3">{{ skill.name }}</p>
 
                     <!-- Vine progress bar -->
                     <app-vine-bar [level]="skill.level"></app-vine-bar>

@@ -1,3 +1,11 @@
+.contact-input::placeholder {
+  color: rgba(61, 43, 31, 0.4);
+}
+
+:host-context(.dark) .contact-input::placeholder {
+  color: rgba(245, 240, 232, 0.5);
+}
+
 // Flower bloom animation
 .flower-svg {
   transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
