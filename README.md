@@ -76,9 +76,9 @@ src/app/
 ## Development
 
 ```bash
-npm install
-ng serve              # Dev server at localhost:4200
-ng build              # Production build
+npm install               # Install dependencies
+ng serve                  # Dev server at localhost:4200
+ng build                  # Production build
 ng test --code-coverage   # Run 154 tests with coverage
 npm run optimize-images   # Regenerate WebP variants
 ```
