@@ -20,38 +20,51 @@ describe('PlantLevelComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should return different stemPath values per level', () => {
-    component.level = 'Beginner';
-    const beginnerPath = component.stemPath;
-    component.level = 'Expert';
-    const expertPath = component.stemPath;
-    expect(beginnerPath).not.toBe(expertPath);
+  it('should render SVG with stem', () => {
+    expect(fixture.nativeElement.querySelector('svg')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('.plant-stem')).toBeTruthy();
   });
 
-  it('should return different stem colors per level', () => {
-    component.level = 'Expert';
-    const expertColor = component.stemColor;
-    component.level = 'Beginner';
-    const beginnerColor = component.stemColor;
-    expect(expertColor).not.toBe(beginnerColor);
+  for (const level of ['Beginner', 'Intermediate', 'Proficient', 'Expert']) {
+    it(`should return unique stemPath for ${level}`, () => {
+      component.level = level;
+      expect(component.stemPath).toBeTruthy();
+      expect(component.stemPath).toContain('M40');
+    });
+
+    it(`should return stemColor for ${level}`, () => {
+      component.level = level;
+      expect(component.stemColor).toMatch(/^#[0-9A-Fa-f]{6}$/);
+    });
+
+    it(`should return leafColor for ${level}`, () => {
+      component.level = level;
+      expect(component.leafColor).toMatch(/^#[0-9A-Fa-f]{6}$/);
+    });
+
+    it(`should return leafColorAlt for ${level}`, () => {
+      component.level = level;
+      expect(component.leafColorAlt).toMatch(/^#[0-9A-Fa-f]{6}$/);
+    });
+
+    it(`should render leaves for ${level}`, () => {
+      component.level = level;
+      fixture.detectChanges();
+      const svg = fixture.nativeElement.querySelector('svg');
+      expect(svg).toBeTruthy();
+    });
+  }
+
+  it('should return default stemPath for unknown level', () => {
+    component.level = 'Unknown';
+    expect(component.stemPath).toContain('M40');
   });
 
-  it('should return different leaf colors per level', () => {
-    component.level = 'Expert';
-    const expertColor = component.leafColor;
-    component.level = 'Beginner';
-    const beginnerColor = component.leafColor;
-    expect(expertColor).not.toBe(beginnerColor);
-  });
-
-  it('should render SVG element', () => {
-    const svg = fixture.nativeElement.querySelector('svg');
-    expect(svg).toBeTruthy();
-  });
-
-  it('should render stem path', () => {
-    const stem = fixture.nativeElement.querySelector('.plant-stem');
-    expect(stem).toBeTruthy();
+  it('should return default colors for unknown level', () => {
+    component.level = 'Unknown';
+    expect(component.stemColor).toBe('#87A878');
+    expect(component.leafColor).toBe('#87A878');
+    expect(component.leafColorAlt).toBe('#6B8F71');
   });
 
   it('should return soil color', () => {

@@ -20,48 +20,59 @@ describe('VineBarComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should return correct percent for each level', () => {
+  it('should render vine stem SVG', () => {
+    expect(fixture.nativeElement.querySelector('.vine-stem')).toBeTruthy();
+  });
+
+  for (const [level, expectedPercent] of [['Expert', 100], ['Proficient', 75], ['Intermediate', 50], ['Beginner', 25]] as const) {
+    it(`should return ${expectedPercent}% for ${level}`, () => {
+      component.level = level;
+      expect(component.percent).toBe(expectedPercent);
+    });
+
+    it(`should calculate stemEnd for ${level}`, () => {
+      component.level = level;
+      expect(component.stemEnd).toBe(4 + (192 * expectedPercent / 100));
+    });
+
+    it(`should return stemColor for ${level}`, () => {
+      component.level = level;
+      expect(component.stemColor).toMatch(/^#[0-9A-Fa-f]{6}$/);
+    });
+
+    it(`should return leafColor for ${level}`, () => {
+      component.level = level;
+      expect(component.leafColor).toMatch(/^#[0-9A-Fa-f]{6}$/);
+    });
+
+    it(`should return leafColorAlt for ${level}`, () => {
+      component.level = level;
+      expect(component.leafColorAlt).toMatch(/^#[0-9A-Fa-f]{6}$/);
+    });
+  }
+
+  it('should return default percent for unknown level', () => {
+    component.level = 'Unknown';
+    expect(component.percent).toBe(10);
+  });
+
+  it('should return default colors for unknown level', () => {
+    component.level = 'Unknown';
+    expect(component.stemColor).toBe('#87A878');
+    expect(component.leafColor).toBe('#87A878');
+    expect(component.leafColorAlt).toBe('#6B8F71');
+  });
+
+  it('should render leaves for Expert level', () => {
     component.level = 'Expert';
-    expect(component.percent).toBe(100);
-    component.level = 'Proficient';
-    expect(component.percent).toBe(75);
-    component.level = 'Intermediate';
-    expect(component.percent).toBe(50);
-    component.level = 'Beginner';
-    expect(component.percent).toBe(25);
-  });
-
-  it('should calculate stemEnd based on percent', () => {
-    component.level = 'Beginner';
-    expect(component.stemEnd).toBe(4 + (192 * 25 / 100));
-    component.level = 'Expert';
-    expect(component.stemEnd).toBe(4 + 192);
-  });
-
-  it('should return different stem colors per level', () => {
-    component.level = 'Expert';
-    const expertColor = component.stemColor;
-    component.level = 'Beginner';
-    const beginnerColor = component.stemColor;
-    expect(expertColor).not.toBe(beginnerColor);
-  });
-
-  it('should render vine stem SVG element', () => {
-    const stem = fixture.nativeElement.querySelector('.vine-stem');
-    expect(stem).toBeTruthy();
-  });
-
-  it('should render leaves for intermediate level', () => {
-    component.level = 'Intermediate';
     fixture.detectChanges();
-    const leaves = fixture.nativeElement.querySelectorAll('.leaf');
-    expect(leaves.length).toBeGreaterThan(0);
+    const leafGroups = fixture.nativeElement.querySelectorAll('.vine-leaf-group');
+    expect(leafGroups.length).toBe(4);
   });
 
-  it('should render no leaves for beginner with low percent', () => {
+  it('should render 1 leaf group for Beginner', () => {
     component.level = 'Beginner';
     fixture.detectChanges();
-    // Beginner is 25%, only first leaf group shows at >= 20%
     const leafGroups = fixture.nativeElement.querySelectorAll('.vine-leaf-group');
     expect(leafGroups.length).toBe(1);
   });

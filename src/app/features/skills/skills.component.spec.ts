@@ -61,4 +61,20 @@ describe('SkillsComponent', () => {
       expect(skill.level).toBeTruthy();
     });
   });
+
+  it('should return bar colors for all levels', () => {
+    expect(component.getLevelBarColor('Expert')).toMatch(/^#/);
+    expect(component.getLevelBarColor('Proficient')).toMatch(/^#/);
+    expect(component.getLevelBarColor('Intermediate')).toMatch(/^#/);
+    expect(component.getLevelBarColor('Beginner')).toMatch(/^#/);
+    expect(component.getLevelBarColor('Unknown')).toMatch(/^#/);
+  });
+
+  it('should return bar widths for all levels', () => {
+    expect(component.getLevelBarWidth('Expert')).toBe('100%');
+    expect(component.getLevelBarWidth('Proficient')).toBe('75%');
+    expect(component.getLevelBarWidth('Intermediate')).toBe('50%');
+    expect(component.getLevelBarWidth('Beginner')).toBe('25%');
+    expect(component.getLevelBarWidth('Unknown')).toBe('10%');
+  });
 });
