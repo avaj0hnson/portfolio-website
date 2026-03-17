@@ -1,0 +1,32 @@
+.headshot-frame {
+  position: relative;
+  display: inline-block;
+}
+
+.headshot-img {
+  transition: border-radius 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.headshot-frame:hover .headshot-img {
+  border-radius: 55% 45% 50% 50% / 45% 55% 45% 55%;
+}
+
+.vine-frame {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: drawFrame 2s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+}
+
+@keyframes drawFrame {
+  to { stroke-dashoffset: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vine-frame {
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+  .headshot-img {
+    transition: none;
+  }
+}

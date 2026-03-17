@@ -4,6 +4,7 @@ import Typed from 'typed.js';
 import { PortfolioComponent } from '../portfolio/portfolio.component';
 import { ContactComponent } from '../contact/contact.component';
 import { SkillsComponent } from '../skills/skills.component';
+import { AboutComponent } from '../about/about.component';
 import { LeafParticlesComponent } from '../../shared/components/leaf-particles/leaf-particles.component';
 import { SectionDividerComponent } from '../../shared/components/section-divider/section-divider.component';
 import { AmbientBloomsComponent } from '../../shared/components/ambient-blooms/ambient-blooms.component';
@@ -15,6 +16,7 @@ import { AmbientBloomsComponent } from '../../shared/components/ambient-blooms/a
     PortfolioComponent,
     ContactComponent,
     SkillsComponent,
+    AboutComponent,
     LeafParticlesComponent,
     SectionDividerComponent,
     AmbientBloomsComponent,

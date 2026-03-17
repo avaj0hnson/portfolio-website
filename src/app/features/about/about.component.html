@@ -1,0 +1,83 @@
+<section id="about" class="py-16 sm:py-24 bg-white dark:bg-[#0D160A] relative overflow-hidden">
+    <!-- Background pattern -->
+    <div class="absolute inset-0 opacity-[0.015] dark:opacity-[0.03]" style="background-image: radial-gradient(#2D5A27 1px, transparent 1px); background-size: 48px 48px;" aria-hidden="true"></div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6">
+        <div class="text-center mb-12 sm:mb-16" appScrollReveal>
+            <p class="font-body text-botanical-sage text-xs sm:text-sm uppercase tracking-[0.3em] mb-3">A bit about me</p>
+            <h2 class="font-display text-3xl sm:text-4xl md:text-5xl font-bold text-botanical-bark dark:text-botanical-cream">
+                About
+            </h2>
+        </div>
+
+        <div class="flex flex-col md:flex-row items-center gap-10 md:gap-16">
+            <!-- Photo -->
+            <div class="shrink-0" appScrollReveal revealDelay="0.1s">
+                <div class="headshot-frame relative">
+                    <!-- Decorative vine border -->
+                    <svg class="absolute -inset-4 w-[calc(100%+2rem)] h-[calc(100%+2rem)] pointer-events-none z-10" viewBox="0 0 120 120" aria-hidden="true">
+                        <path d="M20,5 Q50,0 80,5 Q110,10 115,40 Q118,70 110,95 Q100,115 70,118 Q40,120 15,110 Q2,95 5,65 Q3,35 20,5"
+                              fill="none" stroke="#4A7C59" stroke-width="1" opacity="0.3" class="vine-frame"/>
+                        <circle cx="80" cy="5" r="3" fill="#87A878" opacity="0.4"/>
+                        <circle cx="115" cy="60" r="2.5" fill="#6B8F71" opacity="0.4"/>
+                        <circle cx="30" cy="115" r="3" fill="#87A878" opacity="0.4"/>
+                        <circle cx="5" cy="45" r="2" fill="#6B8F71" opacity="0.4"/>
+                    </svg>
+
+                    <picture>
+                        <source type="image/webp" srcset="img/headshot-400w.webp 400w, img/headshot.webp 800w" sizes="(max-width: 640px) 250px, 280px" />
+                        <img
+                            src="img/headshot.JPG"
+                            alt="Ava Johnson"
+                            class="headshot-img w-[250px] h-[250px] sm:w-[280px] sm:h-[280px] object-cover rounded-[40%_60%_55%_45%/60%_40%_60%_40%] shadow-xl"
+                            loading="lazy"
+                            width="280"
+                            height="280"
+                        />
+                    </picture>
+                </div>
+            </div>
+
+            <!-- Bio -->
+            <div class="text-center md:text-left">
+                <p
+                    class="font-body text-botanical-bark/70 dark:text-botanical-cream/70 text-sm sm:text-base leading-relaxed mb-6"
+                    appScrollReveal revealDelay="0.2s"
+                >
+                    Hi, I'm Ava — a software engineer who cares deeply about craft. I specialize
+                    in Angular and .NET, and I'm passionate about creating polished, performant
+                    applications that people actually enjoy using. I'm at my best when I'm
+                    collaborating with a team that cares as much about the process as the result.
+                    I'm drawn to understanding how systems work under the surface — the small
+                    decisions that shape the bigger picture.
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center md:justify-start" appScrollReveal revealDelay="0.4s">
+                    <a
+                        href="https://linkedin.com/in/avaj0hnson"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="font-display text-sm font-semibold text-primary dark:text-botanical-sage hover:text-primary-light transition-colors"
+                    >
+                        LinkedIn →
+                    </a>
+                    <a
+                        href="https://github.com/avaj0hnson"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="font-display text-sm font-semibold text-primary dark:text-botanical-sage hover:text-primary-light transition-colors"
+                    >
+                        GitHub →
+                    </a>
+                    <a
+                        href="https://docs.google.com/document/d/1Syuvef_3hPk3_LkNC-yJNFXM0bmKfqBAzakbINax8qc/edit?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="font-display text-sm font-semibold text-primary dark:text-botanical-sage hover:text-primary-light transition-colors"
+                    >
+                        Resume →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

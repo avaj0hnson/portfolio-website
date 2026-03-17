@@ -22,7 +22,7 @@
         <!-- Desktop nav -->
         <div class="hidden md:flex items-center gap-5 lg:gap-6">
             <a
-                *ngFor="let section of ['skills', 'portfolio', 'contact']"
+                *ngFor="let section of ['about', 'skills', 'portfolio', 'contact']"
                 class="font-body text-sm cursor-pointer transition-colors duration-300 hover:opacity-80"
                 [ngClass]="{ 'text-botanical-cream/80 hover:text-botanical-cream': !isScrolled, 'text-botanical-bark dark:text-botanical-cream/80 hover:text-primary dark:hover:text-botanical-sage': isScrolled }"
                 role="button"
@@ -117,7 +117,7 @@
         role="menu"
     >
         <a
-            *ngFor="let section of ['skills', 'portfolio', 'contact']"
+            *ngFor="let section of ['about', 'skills', 'portfolio', 'contact']"
             (click)="scrollTo(section)"
             (keydown.enter)="scrollTo(section)"
             class="font-body text-botanical-bark dark:text-botanical-cream/80 hover:text-primary dark:hover:text-botanical-sage cursor-pointer py-1 transition-colors"
