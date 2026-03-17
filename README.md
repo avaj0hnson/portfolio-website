@@ -89,11 +89,4 @@ npm run optimize-images   # Regenerate WebP variants
 
 154 unit tests covering all components, directives, and services.
 
-```
-Statements : 93%
-Branches   : 80%
-Functions  : 91%
-Lines      : 96%
-```
-
 View coverage on [Codecov](https://app.codecov.io/gh/avaj0hnson/portfolio-website).
