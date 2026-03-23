@@ -36,7 +36,6 @@ describe('ProjectModalComponent', () => {
 
   it('should emit close event on escape key press', () => {
     spyOn(component.closeModal, 'emit');
-    const escapeEvent = new KeyboardEvent('keydown', { key: 'Escape' });
     component.onEscapePress();
     expect(component.closeModal.emit).toHaveBeenCalled();
   });
