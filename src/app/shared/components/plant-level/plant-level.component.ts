@@ -27,28 +27,35 @@ import { CommonModule } from '@angular/common';
       />
 
       <!-- Beginner: tiny sprout -->
-      <g *ngIf="level === 'Beginner'">
+      @if (level === 'Beginner') {
+      <g>
         <path d="M40,85 Q35,78 28,80 Q32,72 40,76" [attr.fill]="leafColor" opacity="0.9"/>
       </g>
+      }
 
       <!-- Intermediate: medium plant with leaves -->
-      <g *ngIf="level === 'Intermediate'">
+      @if (level === 'Intermediate') {
+      <g>
         <path d="M40,70 Q28,62 20,68 Q26,55 40,60" [attr.fill]="leafColor" opacity="0.9"/>
         <path d="M40,78 Q52,70 58,76 Q52,64 40,70" [attr.fill]="leafColorAlt" opacity="0.85"/>
         <path d="M40,56 Q32,48 24,54 Q30,42 40,48" [attr.fill]="leafColor" opacity="0.8"/>
       </g>
+      }
 
       <!-- Proficient: full plant with many leaves -->
-      <g *ngIf="level === 'Proficient'">
+      @if (level === 'Proficient') {
+      <g>
         <path d="M40,75 Q26,66 16,74 Q24,58 40,64" [attr.fill]="leafColor" opacity="0.9"/>
         <path d="M40,64 Q54,54 62,62 Q54,48 40,54" [attr.fill]="leafColorAlt" opacity="0.85"/>
         <path d="M40,50 Q28,40 18,48 Q26,32 40,40" [attr.fill]="leafColor" opacity="0.9"/>
         <path d="M40,40 Q52,30 60,38 Q52,24 40,30" [attr.fill]="leafColorAlt" opacity="0.85"/>
         <path d="M40,30 Q34,20 28,26 Q32,16 40,22" [attr.fill]="leafColor" opacity="0.8"/>
       </g>
+      }
 
       <!-- Expert: full flowering plant -->
-      <g *ngIf="level === 'Expert'">
+      @if (level === 'Expert') {
+      <g>
         <path d="M40,75 Q24,64 14,74 Q22,56 40,62" [attr.fill]="leafColor" opacity="0.9"/>
         <path d="M40,62 Q56,50 66,60 Q56,44 40,50" [attr.fill]="leafColorAlt" opacity="0.85"/>
         <path d="M40,48 Q26,36 16,46 Q24,28 40,36" [attr.fill]="leafColor" opacity="0.9"/>
@@ -61,6 +68,7 @@ import { CommonModule } from '@angular/common';
         <ellipse cx="40" cy="12" rx="7" ry="12" fill="#E8B4B8" transform="rotate(288 40 18)" opacity="0.9"/>
         <circle cx="40" cy="18" r="5" fill="#C8A951"/>
       </g>
+      }
     </svg>
   `,
   styles: [`
@@ -122,5 +130,5 @@ export class PlantLevelComponent {
     }
   }
 
-  get soilColor(): string { return '#5D4037'; }
+  readonly soilColor = '#5D4037';
 }

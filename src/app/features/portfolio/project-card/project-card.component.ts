@@ -12,7 +12,7 @@ import { TiltDirective } from '../../../shared/directives/tilt.directive';
 })
 export class ProjectCardComponent {
   @Input({ required: true }) project!: Project;
-  @Output() select = new EventEmitter<void>();
+  @Output() selectProject = new EventEmitter<void>();
 
   get webpImage(): string {
     return this.project.image.replace(/\.(png|jpg|jpeg)$/i, '.webp');

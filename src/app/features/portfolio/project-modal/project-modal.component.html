@@ -3,8 +3,10 @@
     role="dialog"
     aria-modal="true"
     aria-labelledby="modal-title"
-    (click)="close.emit()"
+    (click)="closeModal.emit()"
+    (keydown.enter)="closeModal.emit()"
 >
+    <!-- eslint-disable-next-line @angular-eslint/template/click-events-have-key-events, @angular-eslint/template/interactive-supports-focus -->
     <div
         @fadeIn
         class="bg-white dark:bg-[#1A2F1A] rounded-[24px_8px_24px_8px] max-w-2xl w-full p-5 sm:p-6 relative shadow-2xl border border-botanical-sage/10 dark:border-botanical-sage/20"
@@ -13,7 +15,7 @@
         cdkTrapFocusAutoCapture
     >
         <button
-            (click)="close.emit()"
+            (click)="closeModal.emit()"
             class="absolute top-3 right-4 text-botanical-bark/40 dark:text-botanical-cream/40 hover:text-botanical-bark dark:hover:text-botanical-cream text-2xl transition-colors"
             aria-label="Close project details"
         >
@@ -36,18 +38,21 @@
         <h3 id="modal-title" class="font-display text-xl sm:text-2xl font-bold mb-2 text-botanical-bark dark:text-botanical-cream">{{ project.title }}</h3>
         <p class="font-body text-botanical-bark/70 dark:text-botanical-cream/60 mb-4 text-sm sm:text-base">{{ project.description }}</p>
 
-        <div *ngIf="project.tags?.length" class="flex flex-wrap gap-2 mb-4">
+        @if (project.tags?.length) {
+        <div class="flex flex-wrap gap-2 mb-4">
+            @for (tag of project.tags; track tag) {
             <span
-                *ngFor="let tag of project.tags"
                 class="font-body text-xs bg-botanical-cream dark:bg-botanical-midnight text-botanical-moss dark:text-botanical-sage px-3 py-1 rounded-full"
             >
                 {{ tag }}
             </span>
+            }
         </div>
+        }
 
         <div class="flex flex-wrap gap-4">
+            @for (link of project.links; track link.url) {
             <a
-                *ngFor="let link of project.links"
                 [href]="link.url"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -55,6 +60,7 @@
             >
                 {{ link.label }} →
             </a>
+            }
         </div>
     </div>
 </div>

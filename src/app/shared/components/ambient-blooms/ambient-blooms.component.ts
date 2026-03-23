@@ -16,9 +16,10 @@ interface BloomInstance {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="bloom-canvas" aria-hidden="true" *ngIf="isBrowser">
+    @if (isBrowser) {
+    <div class="bloom-canvas" aria-hidden="true">
+      @for (bloom of activeBlooms; track bloom.id) {
       <svg
-        *ngFor="let bloom of activeBlooms; trackBy: trackBloom"
         [style.left.px]="bloom.x"
         [style.top.px]="bloom.y"
         [style.width.px]="bloom.size"
@@ -27,16 +28,19 @@ interface BloomInstance {
         class="hover-bloom"
       >
         <g [attr.transform]="'rotate(' + bloom.rotation + ' 20 20)'">
+          @for (angle of getPetalAngles(bloom.petalCount); track $index) {
           <ellipse
-            *ngFor="let angle of getPetalAngles(bloom.petalCount)"
             cx="20" cy="10" rx="4" ry="9"
             [attr.fill]="bloom.color"
             [attr.transform]="'rotate(' + angle + ' 20 20)'"
           />
+          }
           <circle cx="20" cy="20" r="2.5" fill="#C8A951" opacity="0.6"/>
         </g>
       </svg>
+      }
     </div>
+    }
   `,
   styles: [`
     .bloom-canvas {

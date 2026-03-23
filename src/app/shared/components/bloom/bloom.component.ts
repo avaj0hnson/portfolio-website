@@ -14,8 +14,8 @@ import { CommonModule } from '@angular/common';
       aria-hidden="true"
     >
       <g [attr.transform]="'translate(' + size/2 + ',' + size/2 + ')'">
+        @for (petal of petals; track $index; let i = $index) {
         <ellipse
-          *ngFor="let petal of petals; let i = index"
           [attr.rx]="size * 0.14"
           [attr.ry]="size * 0.3"
           [attr.transform]="'rotate(' + petal.angle + ') translate(0, ' + (-size * 0.18) + ')'"
@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
           class="petal"
           [style.transition-delay]="(i * 0.06) + 's'"
         />
+        }
         <circle
           [attr.r]="size * 0.1"
           [attr.fill]="centerColor"

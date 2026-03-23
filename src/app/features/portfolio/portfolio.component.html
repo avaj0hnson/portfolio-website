@@ -8,8 +8,8 @@
         </div>
 
         <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10 sm:mb-14" appScrollReveal revealDelay="0.1s">
+            @for (cat of categories; track cat) {
             <button
-                *ngFor="let cat of categories"
                 (click)="setFilter(cat)"
                 [ngClass]="{
                     'bg-primary text-white shadow-lg shadow-primary/20': selectedCategory === cat,
@@ -19,22 +19,25 @@
             >
                 {{ cat | titlecase }}
             </button>
+            }
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            @for (project of filteredProjects; track project.title; let i = $index) {
             <app-project-card
-                *ngFor="let project of filteredProjects; let i = index"
                 [project]="project"
-                (select)="openProject(project)"
+                (selectProject)="openProject(project)"
                 appScrollReveal
                 [revealDelay]="(i * 0.1) + 's'"
             ></app-project-card>
+            }
         </div>
 
+        @if (selectedProject) {
         <app-project-modal
-            *ngIf="selectedProject"
             [project]="selectedProject"
-            (close)="closeModal()"
+            (closeModal)="closeModal()"
         ></app-project-modal>
+        }
     </div>
 </section>

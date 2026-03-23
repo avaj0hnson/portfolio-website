@@ -23,8 +23,8 @@ import { CommonModule } from '@angular/common';
         stroke-linecap="round"
         class="vine-stem"
       />
+      @for (leaf of leafPositions; track $index) {
       <circle
-        *ngFor="let leaf of leafPositions"
         [attr.cx]="leaf.x"
         [attr.cy]="leaf.y"
         [attr.r]="leafSize"
@@ -32,6 +32,7 @@ import { CommonModule } from '@angular/common';
         class="vine-leaf"
         [style.transition-delay]="leaf.delay + 's'"
       />
+      }
     </svg>
   `,
   styles: [`

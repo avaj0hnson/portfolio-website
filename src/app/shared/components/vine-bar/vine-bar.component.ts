@@ -28,37 +28,45 @@ import { CommonModule } from '@angular/common';
       />
 
       <!-- Leaves along the vine -->
-      <g *ngIf="percent >= 20" class="vine-leaf-group" style="--leaf-delay: 0.3s">
+      @if (percent >= 20) {
+      <g class="vine-leaf-group" style="--leaf-delay: 0.3s">
         <path [attr.d]="'M' + (stemEnd * 0.2) + ',14 Q' + (stemEnd * 0.2 - 4) + ',7 ' + (stemEnd * 0.2 - 8) + ',9'"
               fill="none" [attr.stroke]="leafColor" stroke-width="1.2" stroke-linecap="round" class="leaf"/>
         <ellipse [attr.cx]="stemEnd * 0.2 - 9" cy="8" rx="3" ry="2"
                  [attr.fill]="leafColor" transform="rotate(-30)" class="leaf-fill"
                  [attr.transform]="'rotate(-30 ' + (stemEnd * 0.2 - 9) + ' 8)'" />
       </g>
+      }
 
-      <g *ngIf="percent >= 40" class="vine-leaf-group" style="--leaf-delay: 0.45s">
+      @if (percent >= 40) {
+      <g class="vine-leaf-group" style="--leaf-delay: 0.45s">
         <path [attr.d]="'M' + (stemEnd * 0.45) + ',14 Q' + (stemEnd * 0.45 + 3) + ',8 ' + (stemEnd * 0.45 + 7) + ',6'"
               fill="none" [attr.stroke]="leafColor" stroke-width="1.2" stroke-linecap="round" class="leaf"/>
         <ellipse [attr.cx]="stemEnd * 0.45 + 8" cy="5" rx="3.5" ry="2"
                  [attr.fill]="leafColorAlt"
                  [attr.transform]="'rotate(20 ' + (stemEnd * 0.45 + 8) + ' 5)'" class="leaf-fill"/>
       </g>
+      }
 
-      <g *ngIf="percent >= 60" class="vine-leaf-group" style="--leaf-delay: 0.6s">
+      @if (percent >= 60) {
+      <g class="vine-leaf-group" style="--leaf-delay: 0.6s">
         <path [attr.d]="'M' + (stemEnd * 0.7) + ',14 Q' + (stemEnd * 0.7 - 3) + ',7 ' + (stemEnd * 0.7 - 6) + ',5'"
               fill="none" [attr.stroke]="leafColor" stroke-width="1.2" stroke-linecap="round" class="leaf"/>
         <ellipse [attr.cx]="stemEnd * 0.7 - 7" cy="4" rx="3.5" ry="2.2"
                  [attr.fill]="leafColor"
                  [attr.transform]="'rotate(-25 ' + (stemEnd * 0.7 - 7) + ' 4)'" class="leaf-fill"/>
       </g>
+      }
 
-      <g *ngIf="percent >= 80" class="vine-leaf-group" style="--leaf-delay: 0.75s">
+      @if (percent >= 80) {
+      <g class="vine-leaf-group" style="--leaf-delay: 0.75s">
         <path [attr.d]="'M' + (stemEnd * 0.9) + ',14 Q' + (stemEnd * 0.9 + 4) + ',6 ' + (stemEnd * 0.9 + 8) + ',4'"
               fill="none" [attr.stroke]="leafColor" stroke-width="1.2" stroke-linecap="round" class="leaf"/>
         <ellipse [attr.cx]="stemEnd * 0.9 + 9" cy="3" rx="4" ry="2.2"
                  [attr.fill]="leafColorAlt"
                  [attr.transform]="'rotate(15 ' + (stemEnd * 0.9 + 9) + ' 3)'" class="leaf-fill"/>
       </g>
+      }
 
       <!-- Dot at the vine tip -->
       <circle [attr.cx]="stemEnd" cy="14" r="2.5" [attr.fill]="stemColor" class="vine-flower" opacity="0.7"/>

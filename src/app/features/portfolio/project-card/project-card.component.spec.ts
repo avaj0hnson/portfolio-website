@@ -45,10 +45,10 @@ describe('ProjectCardComponent', () => {
   });
 
   it('should emit select event on card click', () => {
-    spyOn(component.select, 'emit');
+    spyOn(component.selectProject, 'emit');
     const card = fixture.nativeElement.querySelector('div');
     card.click();
-    expect(component.select.emit).toHaveBeenCalled();
+    expect(component.selectProject.emit).toHaveBeenCalled();
   });
 
   it('should display project title', () => {

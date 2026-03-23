@@ -14,7 +14,7 @@ import { ScrollRevealDirective } from '../../shared/directives/scroll-reveal.dir
 })
 export class PortfolioComponent {
   selectedCategory: ProjectCategory | 'all' = 'all';
-  categories: Array<'all' | ProjectCategory> = ['all', 'apps', 'me', 'websites'];
+  categories: ('all' | ProjectCategory)[] = ['all', 'apps', 'me', 'websites'];
   selectedProject: Project | null = null;
 
   projects: Project[] = [

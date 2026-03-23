@@ -16,9 +16,10 @@ interface Leaf {
   standalone: true,
   imports: [CommonModule],
   template: `
-    <div class="leaf-particles-container" aria-hidden="true" *ngIf="isBrowser">
+    @if (isBrowser) {
+    <div class="leaf-particles-container" aria-hidden="true">
+      @for (leaf of leaves; track $index) {
       <svg
-        *ngFor="let leaf of leaves"
         [style.left.%]="leaf.x"
         [style.--drift-duration]="leaf.duration + 's'"
         [style.animation-delay]="leaf.delay + 's'"
@@ -33,7 +34,9 @@ interface Leaf {
           [attr.opacity]="leaf.opacity"
         />
       </svg>
+      }
     </div>
+    }
   `,
   styles: [`
     .leaf-particles-container {

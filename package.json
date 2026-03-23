@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:portfolio-website": "node dist/portfolio-website/server/server.mjs",
-    "optimize-images": "node scripts/optimize-images.mjs"
+    "optimize-images": "node scripts/optimize-images.mjs",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +39,9 @@
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",
+    "angular-eslint": "21.0.1",
     "autoprefixer": "^10.4.21",
+    "eslint": "^9.39.1",
     "jasmine-core": "~5.2.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
@@ -48,6 +51,7 @@
     "postcss": "^8.5.3",
     "sharp": "^0.34.5",
     "tailwindcss": "^3.4.17",
-    "typescript": "~5.5.2"
+    "typescript": "~5.5.2",
+    "typescript-eslint": "8.46.4"
   }
 }

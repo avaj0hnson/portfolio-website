@@ -21,8 +21,8 @@
 
         <!-- Desktop nav -->
         <div class="hidden md:flex items-center gap-5 lg:gap-6">
+            @for (section of ['about', 'skills', 'portfolio', 'contact']; track section) {
             <a
-                *ngFor="let section of ['about', 'skills', 'portfolio', 'contact']"
                 class="font-body text-sm cursor-pointer transition-colors duration-300 hover:opacity-80"
                 [ngClass]="{ 'text-botanical-cream/80 hover:text-botanical-cream': !isScrolled, 'text-botanical-bark dark:text-botanical-cream/80 hover:text-primary dark:hover:text-botanical-sage': isScrolled }"
                 role="button"
@@ -32,6 +32,7 @@
             >
                 {{ section | titlecase }}
             </a>
+            }
 
             <!-- Social icons -->
             <a
@@ -110,14 +111,14 @@
     </div>
 
     <!-- Mobile dropdown -->
+    @if (isMenuOpen) {
     <div
         id="mobile-menu"
-        *ngIf="isMenuOpen"
         class="md:hidden px-4 pb-4 bg-botanical-cream/95 dark:bg-botanical-midnight/95 backdrop-blur-md flex flex-col gap-3 text-sm"
         role="menu"
     >
+        @for (section of ['about', 'skills', 'portfolio', 'contact']; track section) {
         <a
-            *ngFor="let section of ['about', 'skills', 'portfolio', 'contact']"
             (click)="scrollTo(section)"
             (keydown.enter)="scrollTo(section)"
             class="font-body text-botanical-bark dark:text-botanical-cream/80 hover:text-primary dark:hover:text-botanical-sage cursor-pointer py-1 transition-colors"
@@ -126,6 +127,7 @@
         >
             {{ section | titlecase }}
         </a>
+        }
         <a href="https://linkedin.com/in/avaj0hnson" aria-label="LinkedIn profile" target="_blank" rel="noopener noreferrer" class="font-body text-botanical-bark dark:text-botanical-cream/80 hover:text-primary dark:hover:text-botanical-sage py-1" role="menuitem">LinkedIn</a>
         <a href="https://github.com/avaj0hnson" aria-label="GitHub profile" target="_blank" rel="noopener noreferrer" class="font-body text-botanical-bark dark:text-botanical-cream/80 hover:text-primary dark:hover:text-botanical-sage py-1" role="menuitem">GitHub</a>
         <a
@@ -138,4 +140,5 @@
             Resume
         </a>
     </div>
+    }
 </nav>

@@ -30,11 +30,11 @@ import { Project } from '../models/project.model';
 })
 export class ProjectModalComponent {
   @Input({ required: true }) project!: Project;
-  @Output() close = new EventEmitter<void>();
+  @Output() closeModal = new EventEmitter<void>();
 
-  @HostListener('document:keydown.escape', ['$event'])
-  onEscapePress(event: KeyboardEvent) {
-    this.close.emit();
+  @HostListener('document:keydown.escape')
+  onEscapePress() {
+    this.closeModal.emit();
   }
 
   get webpImage(): string {

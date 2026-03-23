@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { trigger, style, transition, animate } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
@@ -28,7 +28,7 @@ export class ContactComponent {
   revealForm = false;
   isSending = false;
 
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
   
   onSubmit(form: NgForm) {
     if (!form.valid) return;

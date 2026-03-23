@@ -32,7 +32,7 @@ describe('AboutComponent', () => {
 
   it('should render bio text', () => {
     const paragraphs = fixture.nativeElement.querySelectorAll('p');
-    const bioText = Array.from(paragraphs).map((p: any) => p.textContent).join(' ');
+    const bioText = Array.from(paragraphs).map((p: unknown) => (p as HTMLElement).textContent).join(' ');
     expect(bioText).toContain('craft');
   });
 

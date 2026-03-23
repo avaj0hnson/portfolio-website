@@ -35,10 +35,10 @@ describe('ProjectModalComponent', () => {
   });
 
   it('should emit close event on escape key press', () => {
-    spyOn(component.close, 'emit');
+    spyOn(component.closeModal, 'emit');
     const escapeEvent = new KeyboardEvent('keydown', { key: 'Escape' });
-    component.onEscapePress(escapeEvent);
-    expect(component.close.emit).toHaveBeenCalled();
+    component.onEscapePress();
+    expect(component.closeModal.emit).toHaveBeenCalled();
   });
 
   it('should compute webpImage from source', () => {
@@ -69,10 +69,10 @@ describe('ProjectModalComponent', () => {
   });
 
   it('should emit close when backdrop is clicked', () => {
-    spyOn(component.close, 'emit');
+    spyOn(component.closeModal, 'emit');
     const backdrop = fixture.nativeElement.querySelector('[role="dialog"]');
     backdrop.click();
-    expect(component.close.emit).toHaveBeenCalled();
+    expect(component.closeModal.emit).toHaveBeenCalled();
   });
 
   it('should render tags', () => {

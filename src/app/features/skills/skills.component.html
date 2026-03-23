@@ -11,8 +11,8 @@
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 sm:gap-4">
+            @for (skill of skills; track skill.name; let i = $index) {
             <div
-                *ngFor="let skill of skills; let i = index"
                 class="group relative overflow-hidden bg-white dark:bg-[#1A2F1A] rounded-2xl border border-botanical-sage/8 dark:border-botanical-sage/15 cursor-default skill-card"
                 appScrollReveal [revealDelay]="(i * 0.04) + 's'"
                 appTilt [tiltIntensity]="6" [tiltScale]="1.04" [tiltGlare]="false"
@@ -35,6 +35,7 @@
                     </p>
                 </div>
             </div>
+            }
         </div>
     </div>
 </section>

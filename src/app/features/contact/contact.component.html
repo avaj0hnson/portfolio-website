@@ -47,11 +47,13 @@
                 <circle cx="60" cy="42" r="4" fill="#B89940" class="flower-center-inner"/>
 
                 <!-- Bud (shown when closed) -->
-                <g *ngIf="!revealForm" class="bud">
+                @if (!revealForm) {
+            <g class="bud">
                     <ellipse cx="60" cy="40" rx="10" ry="16" fill="#87A878"/>
                     <ellipse cx="57" cy="38" rx="7" ry="14" fill="#6B8F71"/>
                     <path d="M54,30 Q60,24 66,30" fill="none" stroke="#4A7C59" stroke-width="1"/>
                 </g>
+            }
             </svg>
 
             <p class="font-body text-botanical-sage text-xs mt-2 transition-opacity" [class.opacity-0]="revealForm">
@@ -60,8 +62,8 @@
         </div>
 
         <!-- Contact Form -->
+        @if (revealForm) {
         <div
-            *ngIf="revealForm"
             @slideUp
             class="mt-6 sm:mt-8 bg-white dark:bg-[#1A2F1A] rounded-3xl shadow-xl p-6 sm:p-8 w-full max-w-lg mx-auto border border-botanical-sage/8 dark:border-botanical-sage/20 relative overflow-hidden"
         >
@@ -118,12 +120,14 @@
                 </button>
             </form>
 
+            @if (submitted) {
             <div
-                *ngIf="submitted"
                 class="mt-4 font-body text-primary font-medium text-sm animate-fade-in-up"
             >
                 Message sent! I'll get back to you soon.
             </div>
+            }
         </div>
+        }
     </div>
 </section>
