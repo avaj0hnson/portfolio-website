@@ -45,7 +45,6 @@ export class PortfolioComponent {
       description: 'Reality Flow is an experimental XR content creation platform. Our team developed the mobile app, web portal, and in-VR user interface that allow users to manage accounts, browse shared projects, and collaborate across devices. These interfaces were built using React, React Native, GraphQL, Prisma, and MongoDB, and integrated directly into the Unity-based VR experience.',
       image: 'img/realityflow-thumbnail.png',
       links: [
-        { label: 'GitHub', url: 'https://github.com/orgs/many-realities-studio/teams/realityflow-gold/repositories' },
         { label: 'About', url: 'https://realityflow.io/' }
       ],
       category: ['apps', 'websites'],
